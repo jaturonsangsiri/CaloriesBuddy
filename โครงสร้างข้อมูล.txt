@@ -1,0 +1,84 @@
+users (ผู้ใช้ทั้งหมดในระบบ)
+  id: ไอดีผู้ใช้ (primary key)
+  name: ชื่อแสดงผล
+  accName: ชื่อบัญชี
+  password: รหัสผ่าน
+  email: อีเมล
+  gender: เพศ (ชาย, หญิง)
+  age: อายุ
+  height: ส่วนสูง
+  weight: น้ำหนัก	
+  profile_img: ชื่อรูปภาพ
+  activity_level: ระดับกิจกรรม (น้อย, ปานกลาง, มาก)
+  goal: เป้าหมาย (ลดน้ำหนัก, เพิ่มน้ำหนัก, รักษาน้ำหนัก)
+  daily_calorie_target: เป้าหมายแคลอรี่ต่อวัน
+  is_active: ถูกระงับการใช้งานหรือไม่
+  created_at: สร้างบัญชีตอนไหน
+  last_updated: อัพเดตบัญชีล่าสุดตอนไหน
+
+users_eated (อาหารที่กินไป)
+  id: ไอดีอาหารที่กินไป (primary key)
+  user_id: ไอดีผู้ใช้ (foreign key)
+  food_id: ไอดีอาหาร (foreign key)
+  meal_type: ประเภทมื้ออาหาร (เช้า, กลางวัน, เย็น, ของว่าง)
+  quantity: จำนวน
+  notes: บันทึกเพิ่มเติม
+  create_at: วันที่เพิ่มข้อมูล
+  updated_at: อัพเดตล่าสุดวันไหน
+
+users_fav (รายการอาหารโปรด)
+  id: ไอดี (primary key)
+  userId: ไอดีผู้ใช้ (foreign key)
+  foodId: ไอดีอาหาร (foreign key)
+  createAt: วันที่เพิ่มข้อมูล
+
+foods (รายการอาหารทั้งหมด)
+  id: ไอดีอาหาร (primary key)
+  name: ชื่ออาหาร
+  calories: แคลลอรี่
+  protien: โปรตีน
+  carb: คาร์โบไฮเดรต
+  fat: ไขมัน
+  foodCategory: หมวดหมู่อาหาร
+  image: ชื่อรูปอาหาร
+  createAt: วันที่เพิ่มข้อมูล
+  updatedAt: อัพเดตล่าสุดวันไหน
+
+notification (ค่าแจ้งเตือน)
+  id: ไอดีการแจ้งเตือน (primary key)
+  user_id: ไอดีผู้ใช้ (foreign key)
+  type: ประเภทการแจ้งเตือน
+  message: ข้อความแจ้งเตือน
+  created_at: วันที่สร้างการแจ้งเตือน
+
+workout (ท่าการออกกำลังกาย)
+  id: ไอดีท่าออกกำลังกาย (primary key)
+  name: ชื่อท่าการออกกำลังกาย
+  detail: รายละเอียดท่าออกกำลังกาย
+  muscle: กล้ามเนื้อส่วนไหนที่โดน
+  calorie_burn: เผาผลาญแคลอรี่ (อาจเป็น null ในท่า body weight)
+  difficulty: ระดับความยาก (เช่น beginner, intermediate, advanced)
+  equipment: อุปกรณ์ที่ต้องใช้ (เช่น dumbbells, barbell, bodyweight)
+  image: ชื่อรูปภาพสาธิตท่า
+  video: ชื่อวิดีโอสาธิตท่า
+  created_at: เพิ่มเมื่อวันที่
+  updated_at: อัพเดตล่าสุดวันไหน
+
+users_workout_fav ท่าออกกำลังกายโปรดของผู้ใช้
+  id ไอดีท่าออกกำลังกายของผู้ใช้
+  user_id ไอดีผู้ใช้
+  workout_id: ไอดีท่าออกกำลังกาย (foreign key)
+  created_at: วันที่เพิ่มท่านี้เข้าคลังท่าของผู้ใช้
+  updated_at: วันที่อัปเดตล่าสุด
+
+activities กิจกรรมที่ผู้ใช้ทำไป
+  id: ไอดีกิจกรรม (primary key)
+  user_id: ไอดีผู้ใช้ (foreign key)
+  workout_id: ไอดีท่าออกกำลังกาย (foreign key, อาจเป็น null ถ้าเป็นท่าโปรดของผู้ใช้)
+  user_workout_id: ไอดีท่าออกกำลังกายโปรดของผู้ใช้ (foreign key, อาจเป็น null ถ้าเป็นท่ามาตรฐาน)
+  sets: จำนวนเซ็ต
+  reps: จำนวนครั้งต่อเซ็ต
+  weight: น้ำหนักที่ใช้ (kg)
+  duration: ระยะเวลาที่ทำ (นาที) เช่น การเดิน การวิ่งต้องใส่ (อาจเป็น null ได้)
+  created_at: วันที่บันทึกข้อมูล
+  updated_at: วันที่อัปเดตล่าสุด
