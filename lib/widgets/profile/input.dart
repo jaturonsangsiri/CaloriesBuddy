@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:my_cal_track/bloc/theme/theme_bloc.dart';
 import 'package:my_cal_track/bloc/user/user_bloc.dart';
+import 'package:my_cal_track/contants/contants.dart';
 import 'package:my_cal_track/widgets/system_widget_custom.dart';
 import 'package:my_cal_track/widgets/utils/respone.dart';
 import 'package:flutter/material.dart';
@@ -207,7 +208,7 @@ class _ProfileFormState extends State<ProfileForm> {
                                 //ShowSnackbar.snackbar(ContentType.failure, "ผิดพลาด", "ไม่สามารถลบบัญชีได้");
                               }
                             }
-                          }, const Color.fromARGB(255, 179, 191, 255), Colors.red.shade400);
+                          }, purpleLight, Colors.red.shade400);
                         },
                         icon: const Icon(Icons.save, color: Colors.white, size: 30),
                         label: const Text('ลบบัญชีผู้ใช้',style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.bold)),

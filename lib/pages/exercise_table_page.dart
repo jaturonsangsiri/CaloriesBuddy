@@ -4,17 +4,17 @@ import 'package:my_cal_track/bloc/theme/theme_bloc.dart';
 import 'package:my_cal_track/contants/contants.dart';
 import 'package:my_cal_track/contants/date_time_constants.dart';
 import 'package:my_cal_track/contants/muscle_icons.dart';
-import 'package:my_cal_track/pages/workout_page.dart';
+import 'package:my_cal_track/pages/exercise_page.dart';
 import 'package:my_cal_track/widgets/system_widget_custom.dart';
 
-class WorkoutTablePage extends StatefulWidget {
-  const WorkoutTablePage({super.key});
+class ExerciseTablePage extends StatefulWidget {
+  const ExerciseTablePage({super.key});
 
   @override
-  State<WorkoutTablePage> createState() => _WeeklyWorkoutScreenState();
+  State<ExerciseTablePage> createState() => _WeeklyWorkoutScreenState();
 }
 
-class _WeeklyWorkoutScreenState extends State<WorkoutTablePage> {
+class _WeeklyWorkoutScreenState extends State<ExerciseTablePage> {
   // ข้อมูลรายการลิสออกกำลังกาย
   List<List<String>> exerciseDetails = [
     ['อก', 'หลัง'], 
@@ -244,30 +244,71 @@ class _WeeklyWorkoutScreenState extends State<WorkoutTablePage> {
       }
     }
 
-    Navigator.push(context, MaterialPageRoute(builder: (context) => WorkoutPage(exercises: todayExercises)));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => ExercisePage(exercises: todayExercises)));
   }
 
   void _showRestDayDialog() {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        title: Row(
-          children: [
-            Icon(Icons.hotel, color: Colors.grey[600]),
-            const SizedBox(width: 10),
-            Text('วันพัก'),
-          ],
-        ),
-        content: Text('วันนี้เป็นวันพักผ่อน ให้ร่างกายได้ฟื้นฟูตัว\n\nคุณสามารถทำกิจกรรมเบาๆ เช่น:\n• เดินเล่น\n• ยืดเส้นยืดสาย\n• นวดกล้ามเนื้อ\n• ดื่มน้ำให้เพียงพอ', style: TextStyle(height: 1.5)),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text('ตกลง'),
+      barrierDismissible: false,
+      builder: (context) => Dialog(
+        backgroundColor: Colors.transparent,
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Colors.grey[900]!,Colors.black87]),
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(color: Colors.black.withValues(alpha: 0.3), blurRadius: 20, offset: const Offset(0, 10))
+            ],
           ),
-        ],
+          child: Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text('🌙 วันพักผ่อน', textAlign: TextAlign.center, style: TextTheme.of(context).headlineSmall!.copyWith(color: Colors.white70, fontWeight: FontWeight.bold)),
+                const SizedBox(height: 5),
+                Text('ให้ร่างกายได้ฟื้นฟูตัว', textAlign: TextAlign.center, style: TextTheme.of(context).titleMedium!.copyWith(fontWeight: FontWeight.w500)),
+                const SizedBox(height: 15),
+                
+                // Content with cards
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(color: Colors.grey[800]!.withValues(alpha: 0.5), borderRadius: BorderRadius.circular(15), border: Border.all(color: Colors.grey[700]!, width: 1)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('กิจกรรมแนะนำสำหรับวันนี้:', style: TextTheme.of(context).titleMedium!.copyWith(fontWeight: FontWeight.w600)),
+                      const SizedBox(height: 16),
+                      
+                      // Activity items
+                      _buildActivityItem('🚶‍♂️', 'เดินเล่นเบาๆ', 'ช่วยเพิ่มการไหลเวียนโลหิต'),
+                      _buildActivityItem('🧘‍♀️', 'ยืดเส้นยืดสาย', 'ลดความตึงเครียดของกล้ามเนื้อ'),
+                      _buildActivityItem('💆‍♂️', 'นวดกล้ามเนื้อ', 'ช่วยให้กล้ามเนื้อผ่อนคลาย'),
+                      _buildActivityItem('💧', 'ดื่มน้ำเพียงพอ', 'ช่วยในการฟื้นฟูร่างกาย'),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 15),
+                
+                // Action buttons
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () => Navigator.pop(context),
+                    style: ElevatedButton.styleFrom(backgroundColor: buttonColor1, shadowColor: Colors.transparent, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                    child: Text('เข้าใจแล้ว', style: TextTheme.of(context).titleMedium!.copyWith(color: Colors.white, fontWeight: FontWeight.bold))
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
+
+
   }
 
   void _playVideo(String videoPath) {
@@ -314,12 +355,7 @@ class _WeeklyWorkoutScreenState extends State<WorkoutTablePage> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.4),
-            spreadRadius: 0,
-            blurRadius: 8,
-            offset: Offset(0, 4),
-          ),
+          BoxShadow(color: Colors.black.withValues(alpha: 0.4), spreadRadius: 0, blurRadius: 8, offset: Offset(0, 4))
         ],
       ),
       child: Container(
@@ -339,16 +375,9 @@ class _WeeklyWorkoutScreenState extends State<WorkoutTablePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     // Day
-                    Text(
-                      DateTimeConstants.DAYS_CONSTANT[dayIndex],
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900, color: Colors.white, letterSpacing: 0.5),
-                    ),
+                    Text(DateTimeConstants.DAYS_CONSTANT[dayIndex], style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900, color: Colors.white, letterSpacing: 0.5)),
                     // Status Indicator
-                    Container(
-                      width: 8,
-                      height: 8,
-                      decoration: BoxDecoration(color: isRestDay ? greyOne : elementColorDarkTheme, shape: BoxShape.circle),
-                    ),
+                    Container(width: 8, height: 8, decoration: BoxDecoration(color: isRestDay ? greyOne : elementColorDarkTheme, shape: BoxShape.circle))
                   ],
                 ),
                 SizedBox(height: 4),
@@ -447,7 +476,7 @@ class _WeeklyWorkoutScreenState extends State<WorkoutTablePage> {
                           children: [
                             Icon(Icons.info_outline, color: greyTwo, size: 18),
                             const SizedBox(width: 3),
-                            Text('รายละเอียด', style: TextTheme.of(context).labelMedium!.copyWith(color: greyTwo, fontWeight: FontWeight.w600)),
+                            Text('รายละเอียด', style: TextTheme.of(context).labelMedium!.copyWith(color: greyTwo, fontWeight: FontWeight.w600))
                           ],
                         ),
                       ),
@@ -473,7 +502,7 @@ class _WeeklyWorkoutScreenState extends State<WorkoutTablePage> {
                             children: [
                               Icon(Icons.play_arrow, color: Colors.white, size: 18),
                               const SizedBox(width: 3),
-                              Text('เริ่ม', style: TextTheme.of(context).labelMedium!.copyWith(fontWeight: FontWeight.bold, letterSpacing: 0.3)),
+                              Text('เริ่ม', style: TextTheme.of(context).labelMedium!.copyWith(color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: 0.3)),
                             ],
                           ),
                         ),
@@ -498,12 +527,7 @@ class _WeeklyWorkoutScreenState extends State<WorkoutTablePage> {
           borderRadius: BorderRadius.circular(16),
           border: Border.all(color: themeState.themeApp ? Colors.white.withValues(alpha: 0.1) : Colors.grey.withValues(alpha: 0.2), width: 1),
           boxShadow: [
-            BoxShadow(
-              color: themeState.themeApp ? Colors.black.withValues(alpha: 0.3) : Colors.black.withValues(alpha: 0.08),
-              spreadRadius: 0,
-              blurRadius: 8,
-              offset: Offset(0, 2),
-            ),
+            BoxShadow(color: themeState.themeApp ? Colors.black.withValues(alpha: 0.3) : Colors.black.withValues(alpha: 0.08), spreadRadius: 0, blurRadius: 8, offset: Offset(0, 2))
           ],
         ),
         child: Padding(
@@ -521,12 +545,7 @@ class _WeeklyWorkoutScreenState extends State<WorkoutTablePage> {
                       gradient: LinearGradient(colors: [elementColorDarkTheme.withValues(alpha: 0.8), elementColorDarkTheme], begin: Alignment.topLeft, end: Alignment.bottomRight),
                       borderRadius: BorderRadius.circular(12),
                       boxShadow: [
-                        BoxShadow(
-                          color: elementColorDarkTheme.withValues(alpha: 0.3),
-                          spreadRadius: 0,
-                          blurRadius: 4,
-                          offset: Offset(0, 2),
-                        ),
+                        BoxShadow(color: elementColorDarkTheme.withValues(alpha: 0.3), spreadRadius: 0, blurRadius: 4, offset: Offset(0, 2))
                       ],
                     ),
                     child: ClipRRect(
@@ -600,12 +619,7 @@ class _WeeklyWorkoutScreenState extends State<WorkoutTablePage> {
                       color: Colors.red.withValues(alpha: themeState.themeApp ? 0.9 : 1.0),
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
-                        BoxShadow(
-                          color: Colors.red.withValues(alpha: 0.3),
-                          spreadRadius: 0,
-                          blurRadius: 4,
-                          offset: Offset(0, 2),
-                        ),
+                        BoxShadow(color: Colors.red.withValues(alpha: 0.3), spreadRadius: 0, blurRadius: 4, offset: Offset(0, 2))
                       ],
                     ),
                     child: IconButton(onPressed: () => _playVideo(exercise['video']!), icon: Icon(Icons.play_arrow, color: Colors.white, size: 24)),
@@ -638,4 +652,24 @@ class _WeeklyWorkoutScreenState extends State<WorkoutTablePage> {
       );
     });
   }
+
+  Widget _buildActivityItem(String emoji, String title, String description) {
+  return Padding(
+    padding: const EdgeInsets.only(bottom: 12.0),
+    child: Row(
+      children: [
+        Container(width: 40, height: 40, decoration: BoxDecoration(color: Colors.grey[700]!.withValues(alpha: 0.5), borderRadius: BorderRadius.circular(10)), child: Center(child: Text(emoji, style: TextTheme.of(context).titleLarge))),
+        const SizedBox(width: 12),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(title, style: TextTheme.of(context).bodyLarge!.copyWith(fontWeight: FontWeight.w600)),
+            const SizedBox(height: 2),
+            Text(description, style: TextTheme.of(context).labelLarge!.copyWith(color: Colors.grey[400]))
+          ],
+        ),
+      ],
+    ),
+  );
+}
 }

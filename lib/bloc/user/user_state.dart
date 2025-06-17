@@ -6,6 +6,7 @@ class UserState extends Equatable {
   final String role;
   final String id;
   final String username;
+  final bool loading;
   final bool error;
   final num carbohydrate;
   final num maxCabohydrate;
@@ -14,19 +15,26 @@ class UserState extends Equatable {
   final num fat;
   final num maxFat;
   final num calories;
-  final num maxCalories;
+  final num tdee;
+  final num weight;
+  final int height;
+  final int age;
+  final String gender;
 
   const UserState({
-    this.display = '', this.pic = '', this.role = '', this.id = '', this.username = '', this.error = false, this.carbohydrate = 0, this.maxCabohydrate = 0, this.fat = 0, this.maxFat = 0, this.protien = 0, this.maxProtien = 0, this.calories = 0, this.maxCalories = 0
+    this.display = '', this.pic = '', this.role = '', this.id = '', this.username = '', this.loading = true, this.error = false, this.carbohydrate = 0, this.maxCabohydrate = 0, this.fat = 0, this.maxFat = 0, this.protien = 0, this.maxProtien = 0, this.calories = 0, this.tdee = 0,
+    this.weight = 0, this.height = 0, this.age = 0, this.gender = ''
   });
 
-  UserState copyWith({String? display, String? pic, String? role, String? id, String? username, bool? error, num? carbohydrate, num? maxCabohydrate, num? fat, num? maxFat, num? protien, num? maxProtien, num? calories, num? maxCalories}) {
+  UserState copyWith({String? display, String? pic, String? role, String? id, String? username, bool? loading, bool? error, num? carbohydrate, num? maxCabohydrate, num? fat, num? maxFat, num? protien, num? maxProtien, num? calories, num? tdee, double? weight, int? height,
+  int? age, String? gender}) {
     return UserState(
       display: display ?? this.display,
       pic: pic ?? this.pic,
       role: role ?? this.role,
       id: id ?? this.id,
       username: username ?? this.username,
+      loading: loading ?? this.loading,
       error: error ?? this.error,
       carbohydrate: carbohydrate ?? this.carbohydrate,
       maxCabohydrate: maxCabohydrate ?? this.maxCabohydrate,
@@ -35,10 +43,14 @@ class UserState extends Equatable {
       fat: fat ?? this.fat,
       maxFat: maxFat ?? this.maxFat,
       calories: calories ?? this.calories,
-      maxCalories: maxCalories ?? this.maxCalories
+      tdee: tdee ?? this.tdee,
+      weight: weight ?? this.weight,
+      height: height ?? this.height,
+      age: age ?? this.age,
+      gender: gender ?? this.gender
     );
   }
 
   @override
-  List<Object> get props => [display, pic, role, id, username, error, carbohydrate, maxCabohydrate, protien, maxProtien, fat, maxFat, calories, maxCalories];
+  List<Object> get props => [display, pic, role, id, username, loading, error, carbohydrate, maxCabohydrate, protien, maxProtien, fat, maxFat, calories, tdee, weight, height, age, gender, tdee];
 }

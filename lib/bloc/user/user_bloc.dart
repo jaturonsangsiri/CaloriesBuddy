@@ -18,19 +18,24 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     try {
       //final user = await api.getUser();
       emit(state.copyWith(
-        display: 'Jaturon sangsiri', //user!.display,
-        pic: URL.DEFAULT_PIC, //user.pic,
-        role: 'Admin', //user.role,
-        id: '1', // user.id,
-        username: 'jaturon1234',  //user.username
-        carbohydrate: 23,  //user.carbohydrate
-        maxCabohydrate: 200,  //user.maxCabohydrate
-        protien: 12,  //user.protien
-        maxProtien: 186,  //user.maxProtien
-        fat: 8,  //user.fat
-        maxFat: 60,  //user.maxFat
-        calories: 150,  //user.calories
-        maxCalories: 2300,  //user.maxCalories
+        loading: event.loading,
+        display: event.display, //user!.display,
+        pic: event.pic, //user.pic,
+        role: event.role, //user.role,
+        id: event.id, // user.id,
+        username: event.id,  //user.username
+        carbohydrate: event.carbohydrate,  //user.carbohydrate
+        maxCabohydrate: event.maxCabohydrate,  //user.maxCabohydrate
+        protien: event.protien,  //user.protien
+        maxProtien: event.maxProtien,  //user.maxProtien
+        fat: event.fat,  //user.fat
+        maxFat: event.maxFat,  //user.maxFat
+        calories: event.calories,  //user.calories
+        tdee: event.tdee,  //user.tdee
+        weight: event.weight, //user.weight
+        height: event.height, //user.height
+        age: event.age, //user.age 
+        gender: event.gender //user.gender
       ));
     } catch (e) {
       custom_route.Routes.navigatorKey.currentState?.pushNamedAndRemoveUntil('/login', (route) => false);
@@ -52,7 +57,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       fat: 0, 
       maxFat: 0,
       calories: 0,
-      maxCalories: 0,
+      tdee: 0,
     ));
   }
 

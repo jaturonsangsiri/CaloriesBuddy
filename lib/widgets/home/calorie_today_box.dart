@@ -1,8 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_cal_track/bloc/theme/theme_bloc.dart';
 import 'package:my_cal_track/bloc/user/user_bloc.dart';
 import 'package:my_cal_track/contants/contants.dart';
+import 'package:my_cal_track/services/exercise_formula.dart';
 import 'package:my_cal_track/widgets/cusprogress_bar.dart';
 
 class CalorieTodayBox extends StatelessWidget {
@@ -28,7 +30,17 @@ class CalorieTodayBox extends StatelessWidget {
           ),
           child: BlocBuilder<UserBloc, UserState>(
             builder: (context, user) {
-              return Column(
+              // ทดสอบเปลี่ยนข้อมูล
+              ExerciseFormula formula = ExerciseFormula();
+              double bmr = formula.bmrCalculate(user.weight, user.height, user.age, user.gender);
+              String activity = "Moderately active";
+              double tdee = (formula.activiyCase(activity) * bmr);
+              if (kDebugMode) print('------------------------------------------- $bmr -------------------------------------');
+              if (kDebugMode) print('------------------------------------------- $tdee -------------------------------------');
+
+              context.read<UserBloc>().add(SetUser(tdee: tdee));
+
+              return user.loading ? Center(child: CircularProgressIndicator()) : Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
@@ -57,7 +69,7 @@ class CalorieTodayBox extends StatelessWidget {
                             ),
                             SizedBox.expand(
                               child: CircularProgressIndicator(
-                                value: user.calories != 0? user.calories / user.maxCalories : 0,
+                                value: user.calories != 0? user.calories / user.tdee : 0,
                                 strokeWidth: 10,
                                 backgroundColor: Colors.transparent,
                                 valueColor: AlwaysStoppedAnimation<Color>(progressColorDarkTheme),
@@ -72,7 +84,7 @@ class CalorieTodayBox extends StatelessWidget {
                       Column(
                         children: [
                           Text('TDEE', style: TextTheme.of(context).titleMedium!.copyWith(fontWeight: FontWeight.bold, color: themeState.themeApp ? Colors.black45 : Colors.white)),
-                          Text('${user.maxCalories.toStringAsFixed(0)} Cals', style: TextTheme.of(context).titleMedium!.copyWith(color: themeState.themeApp ? Colors.black45 : Colors.white))
+                          Text('${user.tdee.toStringAsFixed(0)} Cals', style: TextTheme.of(context).titleMedium!.copyWith(color: themeState.themeApp ? Colors.black45 : Colors.white))
                         ],
                       ),
                     ],

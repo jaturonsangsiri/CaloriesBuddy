@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_cal_track/bloc/theme/theme_bloc.dart';
 import 'package:my_cal_track/bloc/user/user_bloc.dart';
+import 'package:my_cal_track/contants/contants.dart';
 import 'package:my_cal_track/widgets/icons_style.dart';
 import 'package:my_cal_track/widgets/system_widget_custom.dart';
 import 'package:my_cal_track/widgets/utils/respone.dart';
@@ -112,14 +113,14 @@ class _ChangeProfileState extends State<ChangeProfile> {
                                             style: ButtonStyle(
                                               backgroundColor: WidgetStateProperty.all<Color>(themeState.themeApp? Colors.grey.shade700 : const Color.fromRGBO(130, 130, 130, 1)),
                                               shape: WidgetStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0), side: BorderSide(color: Colors.white, width: 1))),
-                                              side: WidgetStateProperty.all<BorderSide>(BorderSide(color: const Color.fromARGB(255, 179, 191, 255)),
+                                              side: WidgetStateProperty.all<BorderSide>(BorderSide(color: purpleLight),
                                               ),
                                             ),
                                             onPressed: () {
                                               imagePicker = null;
                                               Navigator.of(context).pop();
                                             },
-                                            child: Text('ยกเลิก', style: TextTheme.of(context).titleMedium!.copyWith(fontWeight: FontWeight.w800, color: const Color.fromARGB(255, 179, 191, 255))),
+                                            child: Text('ยกเลิก', style: TextTheme.of(context).titleMedium!.copyWith(fontWeight: FontWeight.w800, color: purpleLight)),
                                           ),
                                           const SizedBox(width: 20),
                                           OutlinedButton(

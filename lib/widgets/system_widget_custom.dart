@@ -46,7 +46,7 @@ class Systemwidgetcustom {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: const Color.fromARGB(255, 190, 190, 190), decoration: TextDecoration.none)),
+                Text(title, style:  TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: const Color.fromRGBO(190, 190, 190, 1), decoration: TextDecoration.none)),
                 const SizedBox(height: 30),
                 Text(content!, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.white,decoration: TextDecoration.none)),
                 Spacer(),

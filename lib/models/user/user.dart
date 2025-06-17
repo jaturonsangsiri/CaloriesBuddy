@@ -29,17 +29,23 @@ class UserData {
   String? role;
   String? id;
   String? username;
-  String? password;
-  double? carbohydrate;
-  double? maxCabohydrate;
-  double? protien;
-  double? maxProtien;
-  double? fat;
-  double? maxFat;
-  double? calories;
-  double? maxCalories;
+  num? carbohydrate;
+  num? maxCabohydrate;
+  num? protien;
+  num? maxProtien;
+  num? fat;
+  num? maxFat;
+  num? calories;
+  num? tdee;
+  bool? loading;
+  bool? error;
+  num? weight;
+  num? height;
+  num? age;
+  String? gender;
 
-  UserData({required this.display, required this.pic, required this.role, required this.id, required this.username, required this.carbohydrate, required this.maxCabohydrate, required this.protien, required this.maxProtien, required this.fat, required this.maxFat, required this.calories, required this.maxCalories});
+  UserData({required this.display, required this.pic, required this.role, required this.id, required this.username, required this.carbohydrate, required this.maxCabohydrate, required this.protien, required this.maxProtien, required this.fat, 
+  required this.maxFat, required this.calories, required this.tdee, required this.weight, required this.height, required this.age, required this.gender, required this.loading, required this.error});
 
   UserData.fromJson(Map<String?, dynamic> json) {
     id = json['id'];
@@ -54,7 +60,11 @@ class UserData {
     fat = json['fat'];
     maxFat = json['maxFat'];
     calories = json['calories'];
-    maxCalories = json['maxCalories'];
+    tdee = json['tdee'];
+    weight = json['weight'];
+    height = json['height'];
+    age = json['age'];
+    gender = json['gender'];
   }
 
   Map<String, dynamic> toJson() {
@@ -71,7 +81,11 @@ class UserData {
     data['fat'] = fat;
     data['maxFat'] = maxFat;
     data['calories'] = calories;
-    data['maxCalories'] = maxCalories;
+    data['tdee'] = tdee;
+    data['weight'] = weight;
+    data['height'] = height;
+    data['age'] = age;
+    data['gender'] = gender;
     return data; 
   }
 }

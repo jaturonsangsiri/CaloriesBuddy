@@ -121,7 +121,7 @@ class _NotificationPageState extends State<NotificationPage> with SingleTickerPr
                     indicator: BoxDecoration(color: themeState.themeApp? Colors.black45 : Colors.blueGrey[700],  borderRadius: BorderRadius.circular(4), border: Border.all(color: greyOne, width: 1)),
                     labelColor: Colors.white70,
                     unselectedLabelColor: themeState.themeApp? Colors.white : Colors.white54,
-                    labelStyle: TextStyle(fontSize: Responsive.isTablet ? 20 : 16),
+                    labelStyle:  Responsive.isTablet ? TextTheme.of(context).titleLarge : TextTheme.of(context).titleMedium,
                     tabs: [
                       Tab(
                         child: Row(

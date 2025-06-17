@@ -5,16 +5,16 @@ import 'package:my_cal_track/widgets/icons_style.dart';
 import 'package:my_cal_track/widgets/system_widget_custom.dart';
 import 'package:my_cal_track/widgets/utils/respone.dart';
 
-class WorkoutPage extends StatefulWidget {
+class ExercisePage extends StatefulWidget {
   final List<Map<String, dynamic>> exercises;
 
-  const WorkoutPage({super.key, required this.exercises});
+  const ExercisePage({super.key, required this.exercises});
 
   @override
-  State<WorkoutPage> createState() => _WorkoutScreenState();
+  State<ExercisePage> createState() => _ExerciseScreenState();
 }
 
-class _WorkoutScreenState extends State<WorkoutPage> with TickerProviderStateMixin {
+class _ExerciseScreenState extends State<ExercisePage> with TickerProviderStateMixin {
   int currentExerciseIndex = 0;
   int currentSet = 1;
   int completedSets = 0;
@@ -572,7 +572,7 @@ class _WorkoutScreenState extends State<WorkoutPage> with TickerProviderStateMix
                                         color: Colors.white, 
                                         size: Responsive.isTablet ? 35 : 30
                                       ),
-                                      colorbg: Color.fromRGBO(161, 161, 161, 1),
+                                      colorbg: greyOne,
                                       padding: Responsive.isTablet ? 15 : 10,
                                       function: () => Navigator.pop(context)
                                     ),
@@ -709,12 +709,7 @@ class _WorkoutScreenState extends State<WorkoutPage> with TickerProviderStateMix
                               color: Colors.blue[600],
                               borderRadius: BorderRadius.circular(12),
                               boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withValues(alpha: 0.3),
-                                  spreadRadius: 1,
-                                  blurRadius: 4,
-                                  offset: Offset(0, 2),
-                                ),
+                                BoxShadow(color: Colors.black.withValues(alpha: 0.3), spreadRadius: 1, blurRadius: 4, offset: Offset(0, 2))
                               ],
                             ),
                             child: Row(
@@ -732,12 +727,7 @@ class _WorkoutScreenState extends State<WorkoutPage> with TickerProviderStateMix
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
                             boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withValues(alpha: 0.3),
-                                spreadRadius: 1,
-                                blurRadius: 4,
-                                offset: Offset(0, 2),
-                              ),
+                              BoxShadow(color: Colors.black.withValues(alpha: 0.3), spreadRadius: 1, blurRadius: 4, offset: Offset(0, 2))
                             ],
                           ),
                           child: ElevatedButton.icon(
@@ -748,9 +738,7 @@ class _WorkoutScreenState extends State<WorkoutPage> with TickerProviderStateMix
                               backgroundColor: (currentExerciseIndex > 0 || currentSet > 1) ? Colors.purple[600] : Colors.grey[600],
                               foregroundColor: Colors.white,
                               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                               elevation: 0,
                             ),
                           ),
@@ -761,12 +749,7 @@ class _WorkoutScreenState extends State<WorkoutPage> with TickerProviderStateMix
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
                             boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withValues(alpha: 0.3),
-                                spreadRadius: 1,
-                                blurRadius: 4,
-                                offset: Offset(0, 2),
-                              ),
+                              BoxShadow(color: Colors.black.withValues(alpha: 0.3), spreadRadius: 1, blurRadius: 4, offset: Offset(0, 2))
                             ],
                           ),
                           child: ElevatedButton.icon(
@@ -777,9 +760,7 @@ class _WorkoutScreenState extends State<WorkoutPage> with TickerProviderStateMix
                               backgroundColor: Colors.red[600],
                               foregroundColor: Colors.white,
                               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                               elevation: 0,
                             ),
                           ),

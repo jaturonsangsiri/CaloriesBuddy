@@ -16,7 +16,7 @@ import 'package:my_cal_track/models/tag.dart';
 import 'package:my_cal_track/pages/exercise_detail_page.dart';
 import 'package:my_cal_track/pages/food_detail_page.dart';
 import 'package:my_cal_track/pages/item_list_page.dart';
-import 'package:my_cal_track/pages/workout_table_page.dart';
+import 'package:my_cal_track/pages/exercise_table_page.dart';
 import 'package:my_cal_track/widgets/home/calorie_today_box.dart';
 import 'package:my_cal_track/widgets/home/header.dart';
 import 'package:my_cal_track/widgets/home/meal_box.dart';
@@ -37,7 +37,26 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     // เรียกใช้ Bloc เพื่อดึงข้อมูล
-    context.read<UserBloc>().add(SetUser());
+    context.read<UserBloc>().add(SetUser(
+      loading: false,
+      display: 'Jaturon sangsiri',
+      pic: URL.DEFAULT_PIC, 
+      role: 'Admin',
+      id: '1',
+      username: 'jaturon1234',
+      carbohydrate: 23,
+      maxCabohydrate: 200,
+      protien: 12,
+      maxProtien: 186,
+      fat: 8,
+      maxFat: 60,
+      calories: 150,
+      tdee: 2300,
+      weight: 60.0,
+      height: 167, 
+      age: 25,
+      gender: "ชาย"
+    ));
 
     // ดึงข้อมูลรายการอาหาร
     context.read<FoodBloc>().add(GetFoodList(foodList: [
@@ -96,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                   CalorieTodayBox(),
                   const SizedBox(height: 10),
 
-                  systemwidgetcustom.titleExpand(context, 'ตารางออกกำลังกาย', WorkoutTablePage()),
+                  systemwidgetcustom.titleExpand(context, 'ตารางออกกำลังกาย', ExerciseTablePage()),
                   const SizedBox(height: 6),
                   WorkoutTableWeek(),
                   const SizedBox(height: 10),

@@ -12,6 +12,8 @@ Color progressColorDarkTheme = const Color.fromRGBO(247, 147, 38, 1); // สี�
 Color cardBgColor = const Color.fromRGBO(117, 117, 117, 1);
 Color cardBgColorDarkTheme =  const Color.fromRGBO(117, 117, 117, 1); // สีพื้นหลังของ Card 
 Color textColor = textColor;
+Color buttonColor1 = const Color.fromRGBO(157, 119, 112, 1);
+Color purpleLight = const Color.fromRGBO(179, 191, 255, 1);
 
 Color greyOne = const Color.fromRGBO(158, 158, 158, 1); // สีตัวหนังสือ Grey 1 อ่อนสุด
 Color greyTwo = const Color.fromRGBO(189, 189, 189, 1); // สีตัวหนังสือ Grey 2 อ่อน
