@@ -9,5 +9,5 @@ class DateTimeConstants {
 
   static const Duration CONNECT_TIMEOUT = Duration(seconds: 20);
   static const Duration RECEIVE_TIMEOUT = Duration(seconds: 10);
-  static const List<String> DAYS_CONSTANT = ['จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์', 'อาทิตย์'];
+  static const List<String> DAYS_CONSTANT = ['จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.', 'อา.'];
 }

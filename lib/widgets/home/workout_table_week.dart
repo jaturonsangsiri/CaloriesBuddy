@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:my_cal_track/contants/contants.dart';
+import 'package:my_cal_track/contants/date_time_constants.dart';
+import 'package:my_cal_track/contants/muscle_icons.dart';
 
 class WorkoutTableWeek extends StatelessWidget {
   const WorkoutTableWeek({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // ข้อมูลรายการลิสออกกำลังกาย
     List<List<String>> exerciseDetails = [['อก', 'หลัง'], ['หลัง', 'แขน', 'ไหล่'], ['พัก'], ['ขา', 'หน้าท้อง'], ['อก', 'หลัง'], ['หลัง', 'แขน', 'ไหล่'], ['พัก']];
-    Map<String, String> muscleIcons = {'อก': 'assets/images/muscles/chest.png', 'หลัง': 'assets/images/muscles/back.png', 'แขน': 'assets/images/muscles/arm.png', 'ไหล่': 'assets/images/muscles/chest.png', 'ขา': 'assets/images/muscles/leg.png', 'หน้าท้อง': 'assets/images/muscles/six-pack.png'};
-    List<String> days = ['จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.', 'อา.'];
     
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
@@ -32,12 +31,12 @@ class WorkoutTableWeek extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(days[index], style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
+                        Text(DateTimeConstants.DAYS_CONSTANT[index], style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
                         if (isToday)
                           Container(
                             padding: EdgeInsets.all(4),
                             decoration: BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-                            child: Text("วันนี้", style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.blue.shade700)),
+                            child: Text("วันนี้", style: TextTheme.of(context).labelSmall!.copyWith(fontWeight: FontWeight.bold, color: Colors.blue.shade700)),
                           ),
                       ],
                     ),
@@ -66,12 +65,12 @@ class WorkoutTableWeek extends StatelessWidget {
                           child: Icon(Icons.self_improvement, size: 42, color: Colors.white),
                         ),
                         const SizedBox(height: 10),
-                        Text('พักผ่อน', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.white)),
+                        Text('พักผ่อน', style: TextTheme.of(context).titleMedium!.copyWith(fontWeight: FontWeight.w500, color: Colors.white)),
                       ],
                     ) : Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('กลุ่มกล้ามเนื้อ', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Colors.white70)),
+                        Text('กลุ่มกล้ามเนื้อ', style: TextTheme.of(context).titleSmall!.copyWith(fontWeight: FontWeight.w500, color: Colors.white70)),
                         const SizedBox(height: 12),
                         Expanded(
                           child: GridView.count(
@@ -89,7 +88,7 @@ class WorkoutTableWeek extends StatelessWidget {
                                   children: [
                                     Image.asset(muscleIcons[muscle]!, height: 28, width: 28, color: isToday? Colors.white : elementColorDarkTheme),
                                     const SizedBox(height: 4),
-                                    Text(muscle, style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: Colors.white), overflow: TextOverflow.ellipsis, textAlign: TextAlign.center),
+                                    Text(muscle, style: TextTheme.of(context).labelMedium!.copyWith(fontWeight: FontWeight.w500, color: Colors.white), overflow: TextOverflow.ellipsis, textAlign: TextAlign.center),
                                   ],
                                 ),
                               );

@@ -44,15 +44,9 @@ class _HomePageState extends State<HomePage> {
       role: 'Admin',
       id: '1',
       username: 'jaturon1234',
-      carbohydrate: 23,
-      maxCabohydrate: 200,
-      protien: 12,
-      maxProtien: 186,
-      fat: 8,
-      maxFat: 60,
-      calories: 150,
-      tdee: 2300,
-      weight: 60.0,
+      calories: 0,
+      tdee: 0,
+      weight: 60,
       height: 167, 
       age: 25,
       gender: "ชาย"
@@ -76,12 +70,33 @@ class _HomePageState extends State<HomePage> {
     ]));
 
     // ดึงข้อมูลรายการออกกำลังกาย
-    context.read<ExerciseBloc>().add(GetExerciseList(exerciseList: [
-      Exercise(name: 'ท่าบริหารกล้ามเนื้อ',muscle: 'กล้ามเนื้อ',image: 'assets/images/bench-press.jpg',video: 'assets/video/exercise.mp4',detail: 'ท่าบริหารกล้ามเนื้อ 1',calorieBurn: 80,difficulty: 'beginner',equipment: 'ไม่มี'),
-      Exercise(name: 'ท่าสควอท',muscle: 'ขา',image: 'assets/images/bench-press.jpg',video: 'assets/video/squat.mp4',detail: 'ท่าสควอทสำหรับกล้ามเนื้อขา',calorieBurn: 100,difficulty: 'beginner',equipment: 'ไม่มี'),
-      Exercise(name: 'ท่าวิดพื้น',muscle: 'อก',image: 'assets/images/bench-press.jpg',video: 'assets/video/pushup.mp4',detail: 'ท่าวิดพื้นสำหรับกล้ามเนื้ออก',calorieBurn: 90,difficulty: 'beginner',equipment: 'ไม่มี'),
-      Exercise(name: 'ท่าแพลงก์',muscle: 'แกนกลางลำตัว',image: 'assets/images/bench-press.jpg',video: 'assets/video/plank.mp4',detail: 'ท่าแพลงก์สำหรับกล้ามเนื้อแกนกลางลำตัว',calorieBurn: 70,difficulty: 'beginner',equipment: 'ไม่มี'),
-    ]));
+    context.read<ExerciseBloc>().add(GetExerciseList(exerciseList: {
+    'อก': [
+        Exercise(name: 'Bench Press', detail: 'วิธีการ: การตั้งท่าที่มั่นคง วางเท้าให้ราบกับพื้น หลังแนบม้านั่ง จับบาร์กว้างกว่าไหล่เล็กน้อย และล็อคข้อมือให้ตรง', muscle: 'อก', image: 'https://www.trainheroic.com/wp-content/uploads/2023/07/23076-TH-Blog-2400px-jpg.webp', video: 'assets/videos/pushup.mp4', difficulty: 'ปกติ', equipment: 'BarBell', sets: 4, reps: 12, images: ['https://cdn.mos.cms.futurecdn.net/v2/t:0,l:218,cw:563,ch:563,q:80,w:563/pLaRi5jXSHDKu6WRydetBo.jpg', 'https://images.ctfassets.net/8urtyqugdt2l/4wPk3KafRwgpwIcJzb0VRX/4894054c6182c62c1d850628935a4b0b/desktop-best-chest-exercises.jpg']),
+        Exercise(name: 'Bench Press', detail: 'วิธีการ: การตั้งท่าที่มั่นคง วางเท้าให้ราบกับพื้น หลังแนบม้านั่ง จับบาร์กว้างกว่าไหล่เล็กน้อย และล็อคข้อมือให้ตรง', muscle: 'อก', image: 'https://www.trainheroic.com/wp-content/uploads/2023/07/23076-TH-Blog-2400px-jpg.webp', video: 'assets/videos/pushup.mp4', difficulty: 'ปกติ', equipment: 'BarBell', sets: 4, reps: 12, images: ['https://cdn.mos.cms.futurecdn.net/v2/t:0,l:218,cw:563,ch:563,q:80,w:563/pLaRi5jXSHDKu6WRydetBo.jpg', 'https://images.ctfassets.net/8urtyqugdt2l/4wPk3KafRwgpwIcJzb0VRX/4894054c6182c62c1d850628935a4b0b/desktop-best-chest-exercises.jpg']),
+        Exercise(name: 'Cable Fly', detail: 'วิธีการ: กดด้ามจับสายเคเบิลให้มาอยู่ด้านหน้าหน้าอก โดยยืดแขนออกและให้ฝ่ามือหันเข้าหากัน จากนั้นเริ่มทำซ้ำโดยช้าๆ ให้ด้ามจับเคลื่อนไปทางเครื่องสายเคเบิลเป็นทิศทางโค้ง', muscle: 'อก', image: 'https://liftmanual.com/wp-content/uploads/2023/04/cable-standing-fly.jpg', video: 'assets/videos/chest_press.mp4', difficulty: 'ง่าย', equipment: 'BarBell', sets: 4, reps: 12, images: ['https://www.puregym.com/media/0c2ijzzq/cable-chest-flyes.jpg?quality=80', 'https://the-optimal-you.com/wp-content/uploads/2018/01/Cable-Fly.jpg'])
+      ],
+    'หลัง': [
+      Exercise(name: 'Pull Up', detail: 'วิธีการ: ห้อยตัวบนบาร์ ดึงตัวขึ้นจนคางเกินบาร์', muscle: 'หลัง', image: 'https://anabolicaliens.com/cdn/shop/articles/199990_400x.png?v=1645089103', video: 'assets/videos/chest_press.mp4', difficulty: 'ยาก', equipment: 'Bar Pull Up', sets: 3, reps: 8, images: ['https://liftmanual.com/wp-content/uploads/2023/04/reverse-grip-pull-up.jpg', 'https://rockrun.com/cdn/shop/articles/859664_1600x.jpg?v=1585560306']),
+      Exercise(name: 'T Bar Row', detail: 'วิธีการ: ยืนคร่อมบาร์ ก้มตัวลงเล็กน้อย และใช้มือทั้งสองข้างจับที่ปลายบาร์ จากนั้นยกน้ำหนักขึ้นโดยดึงบาร์เข้าหาลำตัว', muscle: 'หลัง', image: 'https://www.shutterstock.com/image-illustration/lever-tbar-row-plate-loaded-260nw-622379585.jpg', video: 'assets/videos/bent_row.mp4', difficulty: 'ยาก', equipment: 'T Bar', sets: 3, reps: 12, images: ['https://watsongym.co.uk/wp-content/uploads/2023/03/DSC09119.jpg', 'https://cdn.shopify.com/s/files/1/0618/9462/3460/files/istockphoto-532792113-612x612-1.jpg'])
+    ],
+    'แขน': [
+      Exercise(name: 'Bicep Curl', detail: 'วิธีการ: ยกดัมเบลขึ้นลงด้วยกล้ามเนื้อต้นแขน', muscle: 'หน้าแขน', image: 'https://www.bpmuscle.com/admin/uploads/images/c8b6c652507d963a.png', video: 'assets/videos/bent_row.mp4', difficulty: 'ง่าย', equipment: 'dumbbell', sets: 4, reps: 12, images: ['https://www.shutterstock.com/image-illustration/dumbbell-biceps-curl-upper-arms-600nw-2327162897.jpg', 'https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2017/11/1109-hammer-curl.jpg?quality=86&strip=all']),
+      Exercise(name: 'Tricep Dip', detail: 'วิธีการ: วางมือบนเก้าอี้ ลดตัวลงแล้วดันขึ้น', muscle: 'หน้าแขน', image: 'https://cdn.shopify.com/s/files/1/1497/9682/files/Benefits_of_Mastering_Tricep_Dips.jpg?v=1687254157&width=750', video: 'assets/videos/bent_row.mp4', difficulty: 'ปานกลาง', equipment: 'dip', sets: 4, reps: 12, images: ['https://images.squarespace-cdn.com/content/v1/5ffcea9416aee143500ea103/1638261887966-89KVMRDCF0WGGE7CH5YV/Assisted%2BTriceps%2BDips.jpeg', 'https://liftmanual.com/wp-content/uploads/2023/04/dumbbell-standing-triceps-extension.jpg', 'https://images.squarespace-cdn.com/content/v1/5ffcea9416aee143500ea103/1638260103209-NCDPK0RI94MTSL5YWMZM/One%2BArm%2BOverhead%2BStanding%2BTriceps%2BExtensions.jpeg'])
+    ],
+    'ไหล่': [
+      Exercise(name: 'Lateral Dumbbell Raise', detail: 'วิธีการ: ยืนตรงถือดัมเบลในมือแต่ละข้างปล่อยแขนลงข้างลำตัว จากนั้นยกแขนทั้งสองข้างออกด้านข้างพร้อมๆ กันจนขนานกับพื้นหรือสูงกว่าเล็กน้อย โดยให้ข้อศอกนำหน้า', muscle: 'ไหล่', image: 'https://images.squarespace-cdn.com/content/v1/55e406fbe4b0b03c5e7543ae/1492638807121-H3Q9V0YU7HX1Z9HJ48EQ/Standing+Dumbbell+Lateral+Raises', video: 'assets/videos/bent_row.mp4', difficulty: 'ง่าย', equipment: 'dumbbell', sets: 4, reps: 12, images: ['https://kinxlearning.com/cdn/shop/files/exercise-32_1000x.jpg?v=1613157925', 'https://cdn.muscleandstrength.com/sites/default/files/one-arm-seated-dumbbell-lateral-raise.jpg'])
+    ],
+    'ขา': [
+      Exercise(name: 'Squat', detail: 'วิธีการ: ยืนตรง นั่งลงแล้วลุกขึ้น', muscle: 'ขา', image: 'https://www.inspireusafoundation.org/wp-content/uploads/2022/06/the-barbell-squat.jpg', video: 'assets/images/exercises/squat.jpg', difficulty: 'ง่าย', equipment: 'barbell', sets: 3, reps: 15, images: ['https://t4.ftcdn.net/jpg/00/89/03/89/360_F_89038937_M6GCms3m25qJyFuLRzudxCOSO6vc8BOK.jpg', 'https://hips.hearstapps.com/hmg-prod/images/man-training-with-weights-royalty-free-image-1718637105.jpg?crop=0.670xw:1.00xh;0.138xw,0&resize=1200:*']),
+      Exercise(name: 'Lunges', detail: 'วิธีการ: ก้าวขาไปข้างหน้าแล้วลงลึก', muscle: 'ขา', image: 'https://www.inspireusafoundation.org/wp-content/uploads/2022/06/the-barbell-squat.jpg', video: 'assets/images/exercises/squat.jpg', difficulty: 'ง่าย', equipment: 'barbell', sets: 3, reps: 15, images: ['https://kinxlearning.com/cdn/shop/files/exercise-14_1000x.jpg?v=1613154730', 'https://images.ctfassets.net/8urtyqugdt2l/4wPk3KafRwgpwIcJzb0VRX/4894054c6182c62c1d850628935a4b0b/desktop-best-chest-exercises.jpg'])
+    ],
+    'หน้าท้อง': [
+      Exercise(name: 'Sit Up', detail: 'วิธีการ: นอนหงาย งอเข่า ลุกขึ้นด้วยกล้ามเนื้อหน้าท้อง', muscle: 'หน้าท้อง', image: 'https://liftmanual.com/wp-content/uploads/2023/04/incline-twisting-situp.jpg', video: 'assets/images/exercises/squat.mp4', difficulty: 'ง่าย', equipment: 'barbell', sets: 4, reps: 20, images: ['https://kinxlearning.com/cdn/shop/files/exercise-18_1000x.jpg?v=1613154703', 'https://images.ctfassets.net/8urtyqugdt2l/4wPk3KafRwgpwIcJzb0VRX/4894054c6182c62c1d850628935a4b0b/desktop-best-chest-exercises.jpg']),
+      Exercise(name: 'Plank', detail: 'วิธีการ: ค้ำตัวด้วยข้อศอกและปลายเท้า (วินาที)', muscle: 'หน้าท้อง', image: 'https://www.inspireusafoundation.org/wp-content/uploads/2023/07/plank-benefits.png', video: 'assets/exercises/squat.mp4', difficulty: 'ง่าย', equipment: 'ไม่มี', sets: 4, reps: 12, images: ['https://cdn.mos.cms.futurecdn.net/v2/t:0,l:218,cw:563,ch:563,q:80,w:563/pLaRi5jXSHDKu6WRydetBo.jpg', 'https://images.ctfassets.net/8urtyqugdt2l/4wPk3KafRwgpwIcJzb0VRX/4894054c6182c62c1d850628935a4b0b/desktop-best-chest-exercises.jpg'])
+    ]
+  }
+));
 
     // ดึงรายการมื้ออาหารของผู้ใช้
     context.read<MealBloc>().add(GetMealList(mealList: [
@@ -151,8 +166,8 @@ class _HomePageState extends State<HomePage> {
                           builder: (context, exercise) {
                             return systemwidgetcustom.customListTileExer(
                               context,
-                              exercise.exerciseList[index],
-                              () => Navigator.push(context, MaterialPageRoute(builder: (context) => ExerciseDetailPage(exercise: exercise.exerciseList[index])))
+                              exercise.exerciseList['อก']![index],
+                              () => Navigator.push(context, MaterialPageRoute(builder: (context) => ExerciseDetailPage(exercise: exercise.exerciseList[exerciseContant[0]]![index])))
                             );
                           },
                         );

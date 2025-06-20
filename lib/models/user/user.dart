@@ -29,6 +29,7 @@ class UserData {
   String? role;
   String? id;
   String? username;
+  String? password;
   num? carbohydrate;
   num? maxCabohydrate;
   num? protien;

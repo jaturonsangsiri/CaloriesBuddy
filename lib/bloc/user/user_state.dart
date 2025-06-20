@@ -22,7 +22,7 @@ class UserState extends Equatable {
   final String gender;
 
   const UserState({
-    this.display = '', this.pic = '', this.role = '', this.id = '', this.username = '', this.loading = true, this.error = false, this.carbohydrate = 0, this.maxCabohydrate = 0, this.fat = 0, this.maxFat = 0, this.protien = 0, this.maxProtien = 0, this.calories = 0, this.tdee = 0,
+    this.display = '', this.pic = URL.DEFAULT_PIC, this.role = '', this.id = '', this.username = '', this.loading = true, this.error = false, this.carbohydrate = 0, this.maxCabohydrate = 1, this.fat = 0, this.maxFat = 1, this.protien = 0, this.maxProtien = 1, this.calories = 0, this.tdee = 0,
     this.weight = 0, this.height = 0, this.age = 0, this.gender = ''
   });
 

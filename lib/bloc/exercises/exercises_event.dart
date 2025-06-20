@@ -9,7 +9,7 @@ sealed class ExerciseEvent extends Equatable {
 }
 
 class GetExerciseList extends ExerciseEvent {
-  final List<Exercise>? exerciseList;
+  final Map<String, List<Exercise>>? exerciseList;
 
   const GetExerciseList({this.exerciseList});
 

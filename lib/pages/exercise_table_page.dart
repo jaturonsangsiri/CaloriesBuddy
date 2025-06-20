@@ -15,17 +15,9 @@ class ExerciseTablePage extends StatefulWidget {
 }
 
 class _WeeklyWorkoutScreenState extends State<ExerciseTablePage> {
-  // ข้อมูลรายการลิสออกกำลังกาย
-  List<List<String>> exerciseDetails = [
-    ['อก', 'หลัง'], 
-    ['หลัง', 'แขน', 'ไหล่'], 
-    ['พัก'], 
-    ['ขา', 'หน้าท้อง'], 
-    ['อก', 'หลัง'], 
-    ['หลัง', 'แขน', 'ไหล่'], 
-    ['พัก']
-  ];
   Systemwidgetcustom systemwidgetcustom = Systemwidgetcustom();
+  
+  List<List<String>> exerciseDetails = [['อก', 'หลัง'], ['หลัง', 'แขน', 'ไหล่'], ['พัก'], ['ขา', 'หน้าท้อง'], ['อก', 'หลัง'], ['หลัง', 'แขน', 'ไหล่'], ['พัก']];
   // ข้อมูลรายละเอียดท่าออกกำลังกาย
   Map<String, List<Map<String, dynamic>>> exerciseList = {
     'อก': [
@@ -333,13 +325,10 @@ class _WeeklyWorkoutScreenState extends State<ExerciseTablePage> {
           children: [
             // Weekly Schedule Grid
             Expanded(
-              child: Padding(
-                padding: EdgeInsets.all(10.0),
-                child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, crossAxisSpacing: 12, mainAxisSpacing: 12, childAspectRatio: 0.75),
-                  itemCount: 7,
-                  itemBuilder: (context, index) => _buildDayCard(index),
-                ),
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, crossAxisSpacing: 12, mainAxisSpacing: 12, childAspectRatio: 0.75),
+                itemCount: 7,
+                itemBuilder: (context, index) => _buildDayCard(index),
               ),
             ),
           ],

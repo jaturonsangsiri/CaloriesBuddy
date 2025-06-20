@@ -18,10 +18,11 @@ Color purpleLight = const Color.fromRGBO(179, 191, 255, 1);
 Color greyOne = const Color.fromRGBO(158, 158, 158, 1); // สีตัวหนังสือ Grey 1 อ่อนสุด
 Color greyTwo = const Color.fromRGBO(189, 189, 189, 1); // สีตัวหนังสือ Grey 2 อ่อน
 
+List exerciseContant = ['อก','ไหล่','หน้าแขน','หลังแขน','ท่อนแขน','หลัง','ขา','น่อง'];
 List tagExercises = ['ทั้งหมด','อก','ไหล่','หน้าแขน','หลังแขน','ท่อนแขน','หลัง','ขา','น่อง'];
 List tagMeals = ['ทั้งหมด','มื้อเช้า','มื้อกลางวัน','มื้อเย็น','มื้อว่าง','มื้อดึก'];
 
 class URL {
-  static const String BASE_URL = "https://tms.siamatic.co.th/smtrack";
+  static const String BASE_URL = "http://10.0.2:3000/";
   static const String DEFAULT_PIC = "https://drive.siamatic.co.th/media/image/default-pic.png";
 }

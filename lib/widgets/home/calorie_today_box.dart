@@ -32,13 +32,21 @@ class CalorieTodayBox extends StatelessWidget {
             builder: (context, user) {
               // ทดสอบเปลี่ยนข้อมูล
               ExerciseFormula formula = ExerciseFormula();
-              double bmr = formula.bmrCalculate(user.weight, user.height, user.age, user.gender);
+              num bmr = formula.bmrCalculate(user.weight, user.height, user.age, user.gender);
               String activity = "Moderately active";
               double tdee = (formula.activiyCase(activity) * bmr);
-              if (kDebugMode) print('------------------------------------------- $bmr -------------------------------------');
-              if (kDebugMode) print('------------------------------------------- $tdee -------------------------------------');
+              num protein = formula.calPotein(user.weight, activity);
+              num fat = formula.calFat(tdee);
+              num carbohydrate = formula.calCarbohydrate(tdee);
+              if (kDebugMode) {
+                print('------------------------------------------- bmr $bmr -------------------------------------');
+                print('------------------------------------------- tdee $tdee -------------------------------------');
+                print('------------------------------------------- protein $protein -------------------------------------');
+                print('------------------------------------------- fat $fat -------------------------------------');
+                print('------------------------------------------- carbohydrate $carbohydrate -------------------------------------');
+              }
 
-              context.read<UserBloc>().add(SetUser(tdee: tdee));
+              context.read<UserBloc>().add(SetUser(tdee: tdee, maxProtien: protein, maxFat: fat, maxCabohydrate: carbohydrate));
 
               return user.loading ? Center(child: CircularProgressIndicator()) : Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,7 +84,7 @@ class CalorieTodayBox extends StatelessWidget {
                               ),
                             ),
         
-                            Text('${user.calories.toStringAsFixed(0)}\nCals', style: TextTheme.of(context).headlineSmall!.copyWith(fontWeight: FontWeight.bold, color: themeState.themeApp ? Colors.black45 : Colors.white))
+                            Text('${user.calories.toStringAsFixed(0)}\nCals', textAlign: TextAlign.center, style: TextTheme.of(context).headlineSmall!.copyWith(fontWeight: FontWeight.bold, color: themeState.themeApp ? Colors.black45 : Colors.white))
                           ],
                         ),
                       ),
@@ -92,11 +100,11 @@ class CalorieTodayBox extends StatelessWidget {
                   const SizedBox(height: 15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: user.carbohydrate != 0? [
+                    children: [
                       progressWidget(context, 'คาร์โบไฮเดรต', '${user.carbohydrate.toStringAsFixed(0)} / ${user.maxCabohydrate.toStringAsFixed(0)} กรัม',  (user.carbohydrate / user.maxCabohydrate) * 100),
                       progressWidget(context, 'โปรตีน', '${user.protien.toStringAsFixed(0)} / ${user.maxProtien.toStringAsFixed(0)} กรัม', (user.protien / user.maxProtien) * 100),
                       progressWidget(context, 'ไขมัน', '${user.fat.toStringAsFixed(0)} / ${user.maxFat.toStringAsFixed(0)} กรัม', (user.fat / user.maxFat) * 100),
-                    ] : [],
+                    ],
                   ),
                 ],
               );
