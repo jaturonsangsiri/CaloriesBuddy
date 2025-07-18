@@ -162,7 +162,7 @@ class Systemwidgetcustom {
         decoration: BoxDecoration(color: Color.fromRGBO(166, 166, 166, 1), boxShadow: [BoxShadow(color: Colors.white, blurRadius: 1, offset: Offset(2, 2))], borderRadius: BorderRadius.all(Radius.circular(10))),
         child: Stack(
           children: [
-            Positioned(left: 10, top: 10, child: ClipRRect(borderRadius: BorderRadius.circular(10), child: Image.asset(food.image, fit: BoxFit.cover, width: 80, height: 80))),
+            //Positioned(left: 10, top: 10, child: ClipRRect(borderRadius: BorderRadius.circular(10), child: Image.asset(food.image, fit: BoxFit.cover, width: 80, height: 80))),
             Positioned(left: 100, right: 50, top: 10, child: Text(food.name, maxLines: 1, overflow: TextOverflow.ellipsis, style: TextTheme.of(context).titleMedium!.copyWith(fontWeight: FontWeight.bold, color: Colors.white))),
             Positioned(left: 100, right: 10, top: 35, child: Text(food.detail, maxLines: 2, overflow: TextOverflow.ellipsis, style: TextTheme.of(context).bodySmall!.copyWith(color: Colors.white))),
             Positioned(right: 10, bottom: 10, child: GestureDetector(onTap: () {
@@ -277,7 +277,7 @@ class Systemwidgetcustom {
         decoration: BoxDecoration(color: Color.fromRGBO(166, 166, 166, 1), boxShadow: [BoxShadow(color: Colors.white, blurRadius: 1, offset: Offset(2, 2))], borderRadius: BorderRadius.all(Radius.circular(10))),
         child: Stack(
           children: [
-            Positioned(left: 10, top: 10, child: ClipRRect(borderRadius: BorderRadius.circular(10), child: Image.asset(exercise.image, fit: BoxFit.cover, width: 80, height: 80))),
+            //Positioned(left: 10, top: 10, child: ClipRRect(borderRadius: BorderRadius.circular(10), child: Image.asset(exercise.image, fit: BoxFit.cover, width: 80, height: 80))),
             Positioned(left: 100, right: 50, top: 10, child: Text(exercise.name, maxLines: 1, overflow: TextOverflow.ellipsis, style: TextTheme.of(context).titleMedium!.copyWith(fontWeight: FontWeight.bold, color: Colors.white))),
             Positioned(left: 100, right: 10, top: 35, child: Text(exercise.detail, maxLines: 2, overflow: TextOverflow.ellipsis, style: TextTheme.of(context).bodySmall!.copyWith(color: Colors.white))),
             Positioned(right: 10, bottom: 10, child: GestureDetector(onTap: () {
