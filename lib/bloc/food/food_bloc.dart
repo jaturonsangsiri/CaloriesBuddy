@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:my_cal_track/models/food.dart';
+import 'package:CaloriesBuddy/models/food.dart';
 
 part 'food_event.dart';
 part 'food_state.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:my_cal_track/contants/contants.dart';
-import 'package:my_cal_track/configs/routes.dart' as custom_route;
+import 'package:CaloriesBuddy/contants/contants.dart';
+import 'package:CaloriesBuddy/configs/routes.dart' as custom_route;
 
 part 'user_event.dart';
 part 'user_state.dart';

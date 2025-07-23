@@ -1,6 +1,6 @@
 
 import 'package:shared_preferences/shared_preferences.dart';
-//import 'package:my_cal_track/src/services/firebase_api.dart';
+//import 'package:CaloriesBuddy/src/services/firebase_api.dart';
 
 class ConfigStorage {
   //final firebase = FirebaseApi();

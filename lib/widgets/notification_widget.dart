@@ -1,7 +1,7 @@
-import 'package:my_cal_track/bloc/theme/theme_bloc.dart';
+import 'package:CaloriesBuddy/bloc/theme/theme_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_cal_track/widgets/utils/respone.dart';
+import 'package:CaloriesBuddy/widgets/utils/respone.dart';
 
 class NotificationWidget {
   // ฟังก์ชั่น Widget ของการแจ้งเตือน

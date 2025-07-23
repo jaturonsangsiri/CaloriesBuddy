@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_cal_track/models/food.dart';
-import 'package:my_cal_track/models/tag.dart';
-import 'package:my_cal_track/widgets/food/input.dart';
-import 'package:my_cal_track/widgets/system_widget_custom.dart';
+import 'package:CaloriesBuddy/models/food.dart';
+import 'package:CaloriesBuddy/models/tag.dart';
+import 'package:CaloriesBuddy/widgets/food/input.dart';
+import 'package:CaloriesBuddy/widgets/system_widget_custom.dart';
 
 class FoodDetailPage extends StatelessWidget {  
   final Food food;                

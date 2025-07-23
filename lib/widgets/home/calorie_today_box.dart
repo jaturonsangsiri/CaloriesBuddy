@@ -1,11 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_cal_track/bloc/theme/theme_bloc.dart';
-import 'package:my_cal_track/bloc/user/user_bloc.dart';
-import 'package:my_cal_track/contants/contants.dart';
-import 'package:my_cal_track/services/exercise_formula.dart';
-import 'package:my_cal_track/widgets/cusprogress_bar.dart';
+import 'package:CaloriesBuddy/bloc/theme/theme_bloc.dart';
+import 'package:CaloriesBuddy/bloc/user/user_bloc.dart';
+import 'package:CaloriesBuddy/contants/contants.dart';
+import 'package:CaloriesBuddy/services/exercise_formula.dart';
+import 'package:CaloriesBuddy/widgets/cusprogress_bar.dart';
 
 class CalorieTodayBox extends StatelessWidget {
   const CalorieTodayBox({super.key});

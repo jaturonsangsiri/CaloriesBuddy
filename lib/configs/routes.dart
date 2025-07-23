@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_cal_track/pages/home_page.dart';
+import 'package:CaloriesBuddy/pages/home_page.dart';
 
 class Routes {
   static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();

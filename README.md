@@ -1,4 +1,4 @@
-# my_cal_track
+# CaloriesBuddy
 
 A new Flutter project.
 

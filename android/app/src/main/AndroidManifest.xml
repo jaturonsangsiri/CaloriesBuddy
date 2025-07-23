@@ -2,7 +2,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:label="my_cal_track"
+        android:label="CaloriesBuddy"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

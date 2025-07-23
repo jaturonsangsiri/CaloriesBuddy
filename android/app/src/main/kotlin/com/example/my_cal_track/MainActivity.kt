@@ -1,4 +1,4 @@
-package com.example.my_cal_track
+package com.example.CaloriesBuddy
 
 import io.flutter.embedding.android.FlutterActivity
 

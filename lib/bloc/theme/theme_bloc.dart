@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:my_cal_track/services/preference.dart';
+import 'package:CaloriesBuddy/services/preference.dart';
 
 part 'theme_event.dart';
 part 'theme_state.dart';

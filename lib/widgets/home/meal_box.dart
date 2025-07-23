@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_cal_track/models/meals.dart';
-import 'package:my_cal_track/widgets/icons_style.dart';
+import 'package:CaloriesBuddy/models/meals.dart';
+import 'package:CaloriesBuddy/widgets/icons_style.dart';
 
 class MealBox extends StatelessWidget {
   final Meals meal;

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_cal_track/bloc/theme/theme_bloc.dart';
-import 'package:my_cal_track/contants/contants.dart';
-import 'package:my_cal_track/models/notifications.dart';
-import 'package:my_cal_track/widgets/notification/notification_list.dart';
-import 'package:my_cal_track/widgets/system_widget_custom.dart';
-import 'package:my_cal_track/widgets/utils/respone.dart';
+import 'package:CaloriesBuddy/bloc/theme/theme_bloc.dart';
+import 'package:CaloriesBuddy/contants/contants.dart';
+import 'package:CaloriesBuddy/models/notifications.dart';
+import 'package:CaloriesBuddy/widgets/notification/notification_list.dart';
+import 'package:CaloriesBuddy/widgets/system_widget_custom.dart';
+import 'package:CaloriesBuddy/widgets/utils/respone.dart';
 
 class NotificationPage extends StatefulWidget {
   const NotificationPage({super.key});

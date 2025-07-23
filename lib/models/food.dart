@@ -1,4 +1,4 @@
-import 'package:my_cal_track/models/tag.dart';
+import 'package:CaloriesBuddy/models/tag.dart';
 
 class Food {
   final String name;

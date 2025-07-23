@@ -3,11 +3,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:my_cal_track/bloc/theme/theme_bloc.dart';
-import 'package:my_cal_track/contants/contants.dart';
-import 'package:my_cal_track/models/exercise.dart';
-import 'package:my_cal_track/models/food.dart';
-import 'package:my_cal_track/models/tag.dart';
+import 'package:CaloriesBuddy/bloc/theme/theme_bloc.dart';
+import 'package:CaloriesBuddy/contants/contants.dart';
+import 'package:CaloriesBuddy/models/exercise.dart';
+import 'package:CaloriesBuddy/models/food.dart';
+import 'package:CaloriesBuddy/models/tag.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class Systemwidgetcustom {

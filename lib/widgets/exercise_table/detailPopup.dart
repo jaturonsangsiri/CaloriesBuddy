@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_cal_track/bloc/theme/theme_bloc.dart';
-import 'package:my_cal_track/contants/contants.dart';
-import 'package:my_cal_track/contants/muscle_icons.dart';
-import 'package:my_cal_track/services/url_launcher.dart';
+import 'package:CaloriesBuddy/bloc/theme/theme_bloc.dart';
+import 'package:CaloriesBuddy/contants/contants.dart';
+import 'package:CaloriesBuddy/contants/muscle_icons.dart';
+import 'package:CaloriesBuddy/services/url_launcher.dart';
 
 class DetailPopup extends StatelessWidget {
   final Map<String, dynamic> exercise;

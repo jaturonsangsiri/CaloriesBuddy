@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:my_cal_track/contants/contants.dart';
-import 'package:my_cal_track/widgets/icons_style.dart';
-import 'package:my_cal_track/widgets/system_widget_custom.dart';
-import 'package:my_cal_track/widgets/utils/respone.dart';
+import 'package:CaloriesBuddy/contants/contants.dart';
+import 'package:CaloriesBuddy/widgets/icons_style.dart';
+import 'package:CaloriesBuddy/widgets/system_widget_custom.dart';
+import 'package:CaloriesBuddy/widgets/utils/respone.dart';
 
 class ExercisePage extends StatefulWidget {
   final List<Map<String, dynamic>> exercises;

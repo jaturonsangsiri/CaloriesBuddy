@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_cal_track/widgets/system_widget_custom.dart';
+import 'package:CaloriesBuddy/widgets/system_widget_custom.dart';
 
 class Input extends StatefulWidget {
   const Input({super.key});

@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:my_cal_track/models/meals.dart';
+import 'package:CaloriesBuddy/models/meals.dart';
 
 sealed class MealEvent extends Equatable {
   const MealEvent();

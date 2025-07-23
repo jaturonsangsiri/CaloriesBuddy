@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_cal_track/contants/contants.dart';
+import 'package:CaloriesBuddy/contants/contants.dart';
 
 class Restdaydialog {
   void showRestDayDialog(BuildContext context) {

@@ -2,11 +2,11 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:my_cal_track/contants/contants.dart';
-import 'package:my_cal_track/contants/date_time_constants.dart';
-import 'package:my_cal_track/models/user/refresh.dart';
-import 'package:my_cal_track/models/user/user.dart';
-import 'package:my_cal_track/services/preference.dart';
+import 'package:CaloriesBuddy/contants/contants.dart';
+import 'package:CaloriesBuddy/contants/date_time_constants.dart';
+import 'package:CaloriesBuddy/models/user/refresh.dart';
+import 'package:CaloriesBuddy/models/user/user.dart';
+import 'package:CaloriesBuddy/services/preference.dart';
 
 class APIService {
   final Dio _dio = Dio();
