@@ -1,3 +1,5 @@
+import 'package:CaloriesBuddy/services/apiService.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:CaloriesBuddy/bloc/exercises/exercises_bloc.dart';
@@ -32,25 +34,36 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Systemwidgetcustom systemwidgetcustom = Systemwidgetcustom();
+  APIService apiService = APIService();
+
+  void getData() async {
+    final response = await apiService.checkLogin("test1", "@Ldv&test");
+    if (response.success!) {
+      // Save user data to storage or state management
+      if (mounted) {
+        context.read<UserBloc>().add(SetUser(
+          loading: false,
+          display: response.data!.name!,
+          pic: response.data!.pic ?? URL.DEFAULT_PIC,
+          role: response.data!.role!,
+          id: response.data!.id!,
+          username: response.data!.name!,
+          calories: 0,
+          tdee: 0,
+          weight: 60,
+          height: 167, 
+          age: 25,
+        ));
+      }
+    } else {
+      if (kDebugMode) print("Failed to get user data: ${response.message}");
+    }
+  }
 
   @override
   void initState() {
     super.initState();
-    // เรียกใช้ Bloc เพื่อดึงข้อมูล
-    context.read<UserBloc>().add(SetUser(
-      loading: false,
-      display: 'Jaturon sangsiri',
-      pic: URL.DEFAULT_PIC, 
-      role: 'Admin',
-      id: '1',
-      username: 'jaturon1234',
-      calories: 0,
-      tdee: 0,
-      weight: 60,
-      height: 167, 
-      age: 25,
-      gender: "ชาย"
-    ));
+    getData();
 
     // ดึงข้อมูลรายการอาหาร
     context.read<FoodBloc>().add(GetFoodList(foodList: [

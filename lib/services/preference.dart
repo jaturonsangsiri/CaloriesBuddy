@@ -51,4 +51,12 @@ class ConfigStorage {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool("theme_app", theme);
   }
+
+  Future<void> clearToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    // await setNotification(false);
+    // await setDoorNotification(false);
+    // await setLegacyNotification(false);
+    await prefs.clear();
+  }
 }
