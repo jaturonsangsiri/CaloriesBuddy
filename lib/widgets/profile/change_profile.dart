@@ -2,12 +2,12 @@ import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:CaloriesBuddy/bloc/theme/theme_bloc.dart';
-import 'package:CaloriesBuddy/bloc/user/user_bloc.dart';
-import 'package:CaloriesBuddy/contants/contants.dart';
-import 'package:CaloriesBuddy/widgets/icons_style.dart';
-import 'package:CaloriesBuddy/widgets/system_widget_custom.dart';
-import 'package:CaloriesBuddy/widgets/utils/respone.dart';
+import 'package:calories_buddy/bloc/theme/theme_bloc.dart';
+import 'package:calories_buddy/bloc/user/user_bloc.dart';
+import 'package:calories_buddy/contants/contants.dart';
+import 'package:calories_buddy/widgets/icons_style.dart';
+import 'package:calories_buddy/widgets/system_widget_custom.dart';
+import 'package:calories_buddy/widgets/utils/respone.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

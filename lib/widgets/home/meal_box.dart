@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:CaloriesBuddy/models/meals.dart';
-import 'package:CaloriesBuddy/widgets/icons_style.dart';
+import 'package:calories_buddy/models/meals.dart';
+import 'package:calories_buddy/widgets/icons_style.dart';
 
 class MealBox extends StatelessWidget {
   final Meals meal;
@@ -14,7 +14,7 @@ class MealBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final totalCalories = meal.foods.fold(0, (sum, food) => sum + food.calories);
+    final totalCalories = meal.foods.fold(0, (sum, food) => sum + (food.calories ?? 0).toInt());
     
     return Card(
       elevation: 4,

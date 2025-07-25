@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:CaloriesBuddy/models/food.dart';
-import 'package:CaloriesBuddy/models/tag.dart';
-import 'package:CaloriesBuddy/widgets/food/input.dart';
-import 'package:CaloriesBuddy/widgets/system_widget_custom.dart';
+import 'package:calories_buddy/models/food/food.dart';
+import 'package:calories_buddy/models/tag.dart';
+import 'package:calories_buddy/widgets/food/input.dart';
+import 'package:calories_buddy/widgets/system_widget_custom.dart';
 
 class FoodDetailPage extends StatelessWidget {  
   final Food food;                
@@ -12,19 +12,19 @@ class FoodDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Systemwidgetcustom systemwidgetcustom = Systemwidgetcustom();
     return Scaffold(
-      appBar: systemwidgetcustom.appBarCustom(context, food.name, null, null),
+      appBar: systemwidgetcustom.appBarCustom(context, food.name!, null, null),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ClipRRect(borderRadius: BorderRadius.circular(10), child: Image.asset(food.image, fit: BoxFit.cover, width: double.infinity, height: 250)),
+              ClipRRect(borderRadius: BorderRadius.circular(10), child: Image.asset(food.image!, fit: BoxFit.cover, width: double.infinity, height: 250)),
               const SizedBox(height: 6),
         
               Text('รายละเอียด', style: TextTheme.of(context).titleMedium!.copyWith(fontWeight: FontWeight.bold, color: Colors.white)),
               SizedBox(height: 6),
-              Text(food.detail, style: TextTheme.of(context).titleSmall!),
+              Text(food.description!, style: TextTheme.of(context).titleSmall!),
               const SizedBox(height: 8),
         
               Text('แคลอรี่', style: TextTheme.of(context).titleMedium!.copyWith(fontWeight: FontWeight.bold, color: Colors.white)),
@@ -34,7 +34,7 @@ class FoodDetailPage extends StatelessWidget {
         
               Text('คาร์โบไฮเดรต', style: TextTheme.of(context).titleMedium!.copyWith(fontWeight: FontWeight.bold, color: Colors.white)),
               SizedBox(height: 6),
-              Text('${food.carbohydrate} g', style: TextTheme.of(context).titleSmall!),
+              Text('${food.carb} g', style: TextTheme.of(context).titleSmall!),
               const SizedBox(height: 8),
         
               Text('โปรตีน', style: TextTheme.of(context).titleMedium!.copyWith(fontWeight: FontWeight.bold, color: Colors.white)),

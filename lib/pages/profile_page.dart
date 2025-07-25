@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:CaloriesBuddy/bloc/theme/theme_bloc.dart';
-import 'package:CaloriesBuddy/contants/contants.dart';
-import 'package:CaloriesBuddy/widgets/profile/change_profile.dart';
-import 'package:CaloriesBuddy/widgets/profile/input.dart';
-import 'package:CaloriesBuddy/widgets/system_widget_custom.dart';
+import 'package:calories_buddy/bloc/theme/theme_bloc.dart';
+import 'package:calories_buddy/contants/contants.dart';
+import 'package:calories_buddy/widgets/profile/change_profile.dart';
+import 'package:calories_buddy/widgets/profile/input.dart';
+import 'package:calories_buddy/widgets/system_widget_custom.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:CaloriesBuddy/models/notifications.dart';
+import 'package:calories_buddy/models/notifications.dart';
 import 'package:flutter/foundation.dart';
 
 part 'notification_event.dart';

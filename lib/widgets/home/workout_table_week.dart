@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:CaloriesBuddy/contants/contants.dart';
-import 'package:CaloriesBuddy/contants/date_time_constants.dart';
-import 'package:CaloriesBuddy/contants/muscle_icons.dart';
+import 'package:calories_buddy/contants/contants.dart';
+import 'package:calories_buddy/contants/date_time_constants.dart';
+import 'package:calories_buddy/contants/muscle_icons.dart';
 
 class WorkoutTableWeek extends StatelessWidget {
   const WorkoutTableWeek({super.key});

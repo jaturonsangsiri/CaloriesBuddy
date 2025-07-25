@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:CaloriesBuddy/app.dart';
-import 'package:CaloriesBuddy/bloc/exercises/exercises_bloc.dart';
-import 'package:CaloriesBuddy/bloc/food/food_bloc.dart';
-import 'package:CaloriesBuddy/bloc/meal/meal_bloc.dart';
-import 'package:CaloriesBuddy/bloc/theme/theme_bloc.dart';
-import 'package:CaloriesBuddy/bloc/user/user_bloc.dart';
+import 'package:calories_buddy/app.dart';
+import 'package:calories_buddy/bloc/exercises/exercises_bloc.dart';
+import 'package:calories_buddy/bloc/food/food_bloc.dart';
+import 'package:calories_buddy/bloc/meal/meal_bloc.dart';
+import 'package:calories_buddy/bloc/theme/theme_bloc.dart';
+import 'package:calories_buddy/bloc/user/user_bloc.dart';
 
 void main() {
   // ดึง Bloc ทั้งหมดมา

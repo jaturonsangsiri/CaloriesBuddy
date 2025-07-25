@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:CaloriesBuddy/models/meals.dart';
+import 'package:calories_buddy/models/meals.dart';
 
 class MealState extends Equatable {
   final List<Meals> mealList;

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:CaloriesBuddy/bloc/theme/theme_bloc.dart';
-import 'package:CaloriesBuddy/contants/contants.dart';
-import 'package:CaloriesBuddy/pages/home_page.dart';
-import 'package:CaloriesBuddy/widgets/utils/respone.dart';
+import 'package:calories_buddy/bloc/theme/theme_bloc.dart';
+import 'package:calories_buddy/contants/contants.dart';
+import 'package:calories_buddy/pages/home_page.dart';
+import 'package:calories_buddy/widgets/utils/respone.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 class App extends StatelessWidget {

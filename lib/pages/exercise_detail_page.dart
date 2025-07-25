@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:CaloriesBuddy/models/exercise.dart';
-import 'package:CaloriesBuddy/widgets/exercise/input.dart';
-import 'package:CaloriesBuddy/widgets/system_widget_custom.dart';
+import 'package:calories_buddy/models/exercise.dart';
+import 'package:calories_buddy/widgets/exercise/input.dart';
+import 'package:calories_buddy/widgets/system_widget_custom.dart';
 
 class ExerciseDetailPage extends StatelessWidget {  
   final Exercise exercise;                

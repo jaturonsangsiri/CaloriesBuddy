@@ -25,3 +25,10 @@ class FilterFood extends FoodEvent {
   @override
   List<Object> get props => [showList!];
 }
+
+class SetFood extends FoodEvent {
+  final List<Food>? foodList;
+  final List<Food>? showList;
+
+  const SetFood({this.foodList, this.showList});
+}

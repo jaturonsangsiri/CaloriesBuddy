@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:CaloriesBuddy/bloc/theme/theme_bloc.dart';
-import 'package:CaloriesBuddy/contants/contants.dart';
-import 'package:CaloriesBuddy/contants/date_time_constants.dart';
-import 'package:CaloriesBuddy/contants/muscle_icons.dart';
-import 'package:CaloriesBuddy/pages/exercise_page.dart';
-import 'package:CaloriesBuddy/widgets/exercise_table/RestdayDialog.dart';
-import 'package:CaloriesBuddy/widgets/exercise_table/detailPopup.dart';
-import 'package:CaloriesBuddy/widgets/system_widget_custom.dart';
+import 'package:calories_buddy/bloc/theme/theme_bloc.dart';
+import 'package:calories_buddy/contants/contants.dart';
+import 'package:calories_buddy/contants/date_time_constants.dart';
+import 'package:calories_buddy/contants/muscle_icons.dart';
+import 'package:calories_buddy/pages/exercise_page.dart';
+import 'package:calories_buddy/widgets/exercise_table/restday_dialog.dart';
+import 'package:calories_buddy/widgets/exercise_table/detail_popup.dart';
+import 'package:calories_buddy/widgets/system_widget_custom.dart';
 
 class ExerciseTablePage extends StatefulWidget {
   const ExerciseTablePage({super.key});

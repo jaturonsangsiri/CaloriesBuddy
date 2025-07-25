@@ -1,13 +1,17 @@
+import 'package:calories_buddy/services/api_service.dart';
+import 'package:calories_buddy/services/preference.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:CaloriesBuddy/contants/contants.dart';
-import 'package:CaloriesBuddy/configs/routes.dart' as custom_route;
+import 'package:calories_buddy/contants/contants.dart';
+import 'package:calories_buddy/configs/routes.dart' as custom_route;
 
 part 'user_event.dart';
 part 'user_state.dart';
 
 class UserBloc extends Bloc<UserEvent, UserState> {
-  //final api = Api();
+  final api = APIService();
+  final configStorage = ConfigStorage();
+  
   UserBloc() : super(const UserState()) {
     on<SetUser>(_onSetUser);
     on<RemoveUser>(_onRemoveUser);
@@ -16,26 +20,27 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
   void _onSetUser(SetUser event, Emitter<UserState> emit) async {
     try {
-      //final user = await api.getUser();
+      final userId = await configStorage.getUserId();
+      final user = await api.getUserProfile(userId!);
       emit(state.copyWith(
         loading: event.loading,
-        display: event.display, //user!.display,
-        pic: event.pic, //user.pic,
-        role: event.role, //user.role,
-        id: event.id, // user.id,
-        username: event.id,  //user.username
-        carbohydrate: event.carbohydrate,  //user.carbohydrate
-        maxCabohydrate: event.maxCabohydrate,  //user.maxCabohydrate
-        protien: event.protien,  //user.protien
-        maxProtien: event.maxProtien,  //user.maxProtien
-        fat: event.fat,  //user.fat
-        maxFat: event.maxFat,  //user.maxFat
-        calories: event.calories,  //user.calories
-        tdee: event.tdee,  //user.tdee
-        weight: event.weight, //user.weight
-        height: event.height, //user.height
-        age: event.age, //user.age 
-        gender: event.gender //user.gender
+        display: user.data!.display,
+        pic: user.data!.pic,
+        role: user.data!.role,
+        id: user.data!.id,
+        username: user.data!.username,
+        carbohydrate: user.data!.carbohydrate,
+        maxCabohydrate: user.data!.maxCabohydrate,
+        protien: user.data!.protien,
+        maxProtien: user.data!.maxProtien,
+        fat: user.data!.fat,
+        maxFat: user.data!.maxFat,
+        calories: user.data!.calories,
+        tdee: user.data!.tdee,
+        weight: user.data!.weight,
+        height: user.data!.height,
+        age: user.data!.age,
+        gender: user.data!.gender
       ));
     } catch (e) {
       custom_route.Routes.navigatorKey.currentState?.pushNamedAndRemoveUntil('/login', (route) => false);

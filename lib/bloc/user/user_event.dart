@@ -23,9 +23,9 @@ class SetUser extends UserEvent {
   final num? maxFat;
   final num? calories;
   final num? tdee;
-  final double? weight;
-  final int? height;
-  final int? age;
+  final num? weight;
+  final num? height;
+  final num? age;
   final String? gender;
 
   const SetUser({this.display, this.pic, this.role, this.id, this.username, this.loading, this.error = false, this.carbohydrate, this.maxCabohydrate, this.protien, this.maxProtien,

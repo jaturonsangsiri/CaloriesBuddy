@@ -17,8 +17,8 @@ class UserState extends Equatable {
   final num calories;
   final num tdee;
   final num weight;
-  final int height;
-  final int age;
+  final num height;
+  final num age;
   final String gender;
 
   const UserState({
@@ -26,8 +26,8 @@ class UserState extends Equatable {
     this.weight = 0, this.height = 0, this.age = 0, this.gender = ''
   });
 
-  UserState copyWith({String? display, String? pic, String? role, String? id, String? username, bool? loading, bool? error, num? carbohydrate, num? maxCabohydrate, num? fat, num? maxFat, num? protien, num? maxProtien, num? calories, num? tdee, double? weight, int? height,
-  int? age, String? gender}) {
+  UserState copyWith({String? display, String? pic, String? role, String? id, String? username, bool? loading, bool? error, num? carbohydrate, num? maxCabohydrate, num? fat, num? maxFat, num? protien, num? maxProtien, num? calories, num? tdee, num? weight, num? height,
+  num? age, String? gender}) {
     return UserState(
       display: display ?? this.display,
       pic: pic ?? this.pic,

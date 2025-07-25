@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
-import 'package:CaloriesBuddy/bloc/theme/theme_bloc.dart';
-import 'package:CaloriesBuddy/bloc/user/user_bloc.dart';
-import 'package:CaloriesBuddy/contants/contants.dart';
-import 'package:CaloriesBuddy/widgets/system_widget_custom.dart';
-import 'package:CaloriesBuddy/widgets/utils/respone.dart';
+import 'package:calories_buddy/bloc/theme/theme_bloc.dart';
+import 'package:calories_buddy/bloc/user/user_bloc.dart';
+import 'package:calories_buddy/contants/contants.dart';
+import 'package:calories_buddy/widgets/system_widget_custom.dart';
+import 'package:calories_buddy/widgets/utils/respone.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:CaloriesBuddy/configs/routes.dart' as custom_route;
+import 'package:calories_buddy/configs/routes.dart' as custom_route;
 
 class ProfileForm extends StatefulWidget {
   const ProfileForm({super.key});

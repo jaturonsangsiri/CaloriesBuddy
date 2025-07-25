@@ -2,7 +2,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:label="CaloriesBuddy"
+        android:label="calories_buddy"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -23,6 +23,6 @@ List tagExercises = ['ทั้งหมด','อก','ไหล่','หน้�
 List tagMeals = ['ทั้งหมด','มื้อเช้า','มื้อกลางวัน','มื้อเย็น','มื้อว่าง','มื้อดึก'];
 
 class URL {
-  static const String BASE_URL = "http://10.0.2:3000/";
+  static const String BASE_URL = "http://10.0.2.2:3000/";
   static const String DEFAULT_PIC = "https://drive.siamatic.co.th/media/image/default-pic.png";
 }

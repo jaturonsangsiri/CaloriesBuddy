@@ -1,12 +1,15 @@
 
 import 'dart:convert';
 
-import 'package:CaloriesBuddy/contants/contants.dart';
-import 'package:CaloriesBuddy/contants/date_time_constants.dart';
-import 'package:CaloriesBuddy/configs/routes.dart' as custom_route;
-import 'package:CaloriesBuddy/models/login.dart';
-import 'package:CaloriesBuddy/models/user/refresh.dart';
-import 'package:CaloriesBuddy/services/preference.dart';
+import 'package:calories_buddy/contants/contants.dart';
+import 'package:calories_buddy/contants/date_time_constants.dart';
+import 'package:calories_buddy/configs/routes.dart' as custom_route;
+import 'package:calories_buddy/models/food/food.dart';
+import 'package:calories_buddy/models/food/food_response.dart';
+import 'package:calories_buddy/models/login.dart';
+import 'package:calories_buddy/models/user/refresh.dart';
+import 'package:calories_buddy/models/user/user.dart';
+import 'package:calories_buddy/services/preference.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
@@ -95,13 +98,13 @@ class APIService {
 
         switch(user.data!.role) {
           case "USER":
-            print("Role: USER");
+            if (kDebugMode) print("Role: USER");
             break;
           case "ADMIN":
-            print("Role: ADMIN");
+            if (kDebugMode) print("Role: ADMIN");
             break;
           default:
-            print("Role: SUPER_ADMIN");
+            if (kDebugMode) print("Role: SUPER_ADMIN");
             break;
         }
 
@@ -116,5 +119,36 @@ class APIService {
       if (kDebugMode) print(error.response?.data['message'] ?? error);
       throw Exception(error.response?.data['message'] ?? 'Unknown error occurred');
     } 
+  }
+
+  Future<UserResponse> getUserProfile(String userId) async {
+    try {
+      final Response response = await _dio.get('/users/$userId');
+      if (response.statusCode == 200) {
+        UserResponse user = UserResponse.fromJson(json.decode(response.data));
+        return user;
+      } else {
+        throw Exception('Failed to get user profile');
+      }
+    } on DioException catch (error) {
+      if (kDebugMode) print(error.message);
+      throw Exception(error.response?.data['message'] ?? 'Unknown error occurred');
+    }
+  }
+
+  Future<List<Food>> getAllFoods() async {
+    try {
+      final Response response = await _dio.get('/foods');
+      if (response.statusCode == 200) {
+        List jsonList = response.data;
+        List<Food> foodList = jsonList.map((foodData) => Food.fromJson(foodData)).toList();
+        return foodList;
+      } else {
+        throw Exception('Failed to get food');
+      }
+    } on DioException catch (error) {
+      if (kDebugMode) print(error.message);
+      throw Exception(error.response?.data['message'] ?? 'Unknown error occurred');
+    }
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:CaloriesBuddy/contants/contants.dart';
+import 'package:calories_buddy/contants/contants.dart';
 
 class CustomProgressBar extends StatelessWidget {
   final double percentage;

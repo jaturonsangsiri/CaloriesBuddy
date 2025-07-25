@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:CaloriesBuddy/bloc/food/food_bloc.dart';
-import 'package:CaloriesBuddy/models/tag.dart';
-import 'package:CaloriesBuddy/widgets/system_widget_custom.dart';
+import 'package:calories_buddy/bloc/food/food_bloc.dart';
+import 'package:calories_buddy/models/tag.dart';
+import 'package:calories_buddy/widgets/system_widget_custom.dart';
 
 class ListFilter extends StatefulWidget {
   final List<Tag> tags;

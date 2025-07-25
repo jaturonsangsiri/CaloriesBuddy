@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:CaloriesBuddy/bloc/food/food_bloc.dart';
-import 'package:CaloriesBuddy/models/tag.dart';
-import 'package:CaloriesBuddy/pages/food_detail_page.dart';
-import 'package:CaloriesBuddy/widgets/food/list_filter.dart';
-import 'package:CaloriesBuddy/widgets/system_widget_custom.dart';
+import 'package:calories_buddy/bloc/food/food_bloc.dart';
+import 'package:calories_buddy/models/tag.dart';
+import 'package:calories_buddy/pages/food_detail_page.dart';
+import 'package:calories_buddy/widgets/food/list_filter.dart';
+import 'package:calories_buddy/widgets/system_widget_custom.dart';
 
 class ItemListPage extends StatelessWidget {
   final String title;

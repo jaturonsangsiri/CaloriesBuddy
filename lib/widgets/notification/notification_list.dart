@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:CaloriesBuddy/models/notifications.dart';
-import 'package:CaloriesBuddy/widgets/notification/notification_tile.dart';
+import 'package:calories_buddy/models/notifications.dart';
+import 'package:calories_buddy/widgets/notification/notification_tile.dart';
 
 class NotificationList extends StatelessWidget {
   final List<NotificationModel> notifications;

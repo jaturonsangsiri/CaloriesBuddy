@@ -3,11 +3,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:CaloriesBuddy/bloc/theme/theme_bloc.dart';
-import 'package:CaloriesBuddy/contants/contants.dart';
-import 'package:CaloriesBuddy/models/exercise.dart';
-import 'package:CaloriesBuddy/models/food.dart';
-import 'package:CaloriesBuddy/models/tag.dart';
+import 'package:calories_buddy/bloc/theme/theme_bloc.dart';
+import 'package:calories_buddy/contants/contants.dart';
+import 'package:calories_buddy/models/exercise.dart';
+import 'package:calories_buddy/models/food/food.dart';
+import 'package:calories_buddy/models/tag.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class Systemwidgetcustom {
@@ -162,9 +162,9 @@ class Systemwidgetcustom {
         decoration: BoxDecoration(color: Color.fromRGBO(166, 166, 166, 1), boxShadow: [BoxShadow(color: Colors.white, blurRadius: 1, offset: Offset(2, 2))], borderRadius: BorderRadius.all(Radius.circular(10))),
         child: Stack(
           children: [
-            //Positioned(left: 10, top: 10, child: ClipRRect(borderRadius: BorderRadius.circular(10), child: Image.asset(food.image, fit: BoxFit.cover, width: 80, height: 80))),
-            Positioned(left: 100, right: 50, top: 10, child: Text(food.name, maxLines: 1, overflow: TextOverflow.ellipsis, style: TextTheme.of(context).titleMedium!.copyWith(fontWeight: FontWeight.bold, color: Colors.white))),
-            Positioned(left: 100, right: 10, top: 35, child: Text(food.detail, maxLines: 2, overflow: TextOverflow.ellipsis, style: TextTheme.of(context).bodySmall!.copyWith(color: Colors.white))),
+            //Positioned(left: 10, top: 10, child: ClipRRect(borderRadius: BorderRadius.circular(10), child: Image.network(food.image!, fit: BoxFit.cover, width: 80, height: 80))),
+            Positioned(left: 100, right: 50, top: 10, child: Text(food.name!, maxLines: 1, overflow: TextOverflow.ellipsis, style: TextTheme.of(context).titleMedium!.copyWith(fontWeight: FontWeight.bold, color: Colors.white))),
+            Positioned(left: 100, right: 10, top: 35, child: Text(food.description!, maxLines: 2, overflow: TextOverflow.ellipsis, style: TextTheme.of(context).bodySmall!.copyWith(color: Colors.white))),
             Positioned(right: 10, bottom: 10, child: GestureDetector(onTap: () {
               showDialog(
                 context: context,
@@ -187,12 +187,12 @@ class Systemwidgetcustom {
                         children: [
                           Text('เพิ่มอาหาร', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: const Color.fromRGBO(84, 84, 84, 1), decoration: TextDecoration.none)),
                           const SizedBox(height: 10),
-                          ClipRRect(borderRadius: BorderRadius.circular(10), child: Image.asset(food.image, fit: BoxFit.cover, width: double.infinity, height: 150)),
+                          ClipRRect(borderRadius: BorderRadius.circular(10), child: Image.asset(food.image!, fit: BoxFit.cover, width: double.infinity, height: 150)),
                           const SizedBox(height: 6),
                     
                           Text('รายละเอียด', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: const Color.fromRGBO(84, 84, 84, 1))),
                           SizedBox(height: 6),
-                          Text(food.detail, style: TextTheme.of(context).titleSmall!.copyWith(color: const Color.fromRGBO(84, 84, 84, 1))),
+                          Text(food.description!, style: TextTheme.of(context).titleSmall!.copyWith(color: const Color.fromRGBO(84, 84, 84, 1))),
                           const SizedBox(height: 8),
                     
                           Text('แคลอรี่', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: const Color.fromRGBO(84, 84, 84, 1))),
@@ -202,7 +202,7 @@ class Systemwidgetcustom {
                     
                           Text('คาร์โบไฮเดรต', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: const Color.fromRGBO(84, 84, 84, 1))),
                           SizedBox(height: 6),
-                          Text('${food.carbohydrate} g', style: TextTheme.of(context).titleSmall!.copyWith(color: const Color.fromRGBO(84, 84, 84, 1))),
+                          Text('${food.carb} g', style: TextTheme.of(context).titleSmall!.copyWith(color: const Color.fromRGBO(84, 84, 84, 1))),
                           const SizedBox(height: 8),
                     
                           Text('โปรตีน', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: const Color.fromRGBO(84, 84, 84, 1))),

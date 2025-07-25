@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:CaloriesBuddy/widgets/system_widget_custom.dart';
+import 'package:calories_buddy/widgets/system_widget_custom.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});

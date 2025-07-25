@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:CaloriesBuddy/models/food.dart';
+import 'package:calories_buddy/models/food/food.dart';
 
 class Meals {
   final String name;

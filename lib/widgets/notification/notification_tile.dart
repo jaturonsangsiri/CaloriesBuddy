@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:CaloriesBuddy/models/notifications.dart';
+import 'package:calories_buddy/models/notifications.dart';
 
 class NotificationTile extends StatelessWidget {
   final NotificationModel notification;
