@@ -156,8 +156,16 @@ class APIService {
       final Response response = await _dio.post('/users', data: {
         "name": display,
         "accName": username,
-        "passwword": password,
-        "email": email
+        "password": password,
+        "email": email,
+        "gender": "MALE",
+        "age": 0,
+        "height": 0,
+        "weight": 0,
+        "activityLevel": "MEDIUM",
+        "goal": "GAIN_WEIGHT",
+        "tdee": 0,
+        "role": "USER"
       });
       if (response.statusCode == 201) {
         return true;

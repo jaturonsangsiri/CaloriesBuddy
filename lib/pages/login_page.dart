@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:calories_buddy/configs/version.dart';
 import 'package:calories_buddy/pages/register_page.dart';
 import 'package:calories_buddy/widgets/login/input.dart';
+import 'package:calories_buddy/widgets/utils/respone.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -23,7 +24,7 @@ class LoginPage extends StatelessWidget {
                     children: [
                       // ส่วนหัว
                       Container(
-                        height: MediaQuery.of(context).size.height * 0.30,
+                        height: Responsive.height * 0.30,
                         width: double.infinity,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
@@ -67,7 +68,7 @@ class LoginPage extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.all(25),
                         margin: const EdgeInsets.symmetric(vertical: 30),
-                        width: math.min(400, MediaQuery.of(context).size.width * 0.9),
+                        width: math.min(400, Responsive.width * 0.9),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10),

@@ -34,7 +34,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
   Widget build(BuildContext context) {
     return BlocBuilder<UserBloc, UserState>(
       builder: (context, snapshot) {
-        double imageSize = Responsive().isTablet ? 200 : 120;
+        double imageSize = Responsive.isTablet ? 200 : 120;
         return Align(
           alignment: Alignment.topCenter,
           child: Padding(
@@ -43,10 +43,10 @@ class _ChangeProfileState extends State<ChangeProfile> {
               children: [
                 // รูปโปรไฟล์
                 SizedBox(
-                  height: Responsive().isTablet ? 350 : 120,
-                  width: Responsive().isTablet ? 250 : 120,
+                  height: Responsive.isTablet ? 350 : 120,
+                  width: Responsive.isTablet ? 250 : 120,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(Responsive().isTablet ? 150 : 60),
+                    borderRadius: BorderRadius.circular(Responsive.isTablet ? 150 : 60),
                     child: CachedNetworkImage(
                       imageUrl: snapshot.pic,
                       placeholder: (context, url) => const CircularProgressIndicator(color: Colors.white70),
@@ -70,8 +70,8 @@ class _ChangeProfileState extends State<ChangeProfile> {
                         builder: (context) => BlocBuilder<ThemeBloc, ThemeState>(builder: (context, themeState) {
                           return Center(
                             child: Container(
-                              height: Responsive().isTablet ? 430 : 370,
-                              width: Responsive().isTablet ? 400 : 300,
+                              height: Responsive.isTablet ? 430 : 370,
+                              width: Responsive.isTablet ? 400 : 300,
                               padding: EdgeInsets.all(20),
                               decoration: BoxDecoration(color: themeState.themeApp? Colors.grey.shade100 : const Color.fromRGBO(130, 130, 130, 1), borderRadius: BorderRadius.circular(15)),
                               child: StatefulBuilder(

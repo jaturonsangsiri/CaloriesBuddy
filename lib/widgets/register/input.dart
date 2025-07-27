@@ -22,11 +22,13 @@ class _RegisterFormState extends State<RegisterForm> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController conFirmPasswordController = TextEditingController();
   TextEditingController accountNameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
   // focus node
   FocusNode nameFocus = FocusNode();
   FocusNode passFocus = FocusNode();
   FocusNode conFocus = FocusNode();
   FocusNode accNameFocus = FocusNode();
+  FocusNode emailFocus = FocusNode();
   // custom widget
   Systemwidgetcustom systemwidgetcustom = Systemwidgetcustom();
   final APIService apiService = APIService();
@@ -39,7 +41,7 @@ class _RegisterFormState extends State<RegisterForm> {
     if (_formKey.currentState!.validate()) {
       if (passwordController.text.isNotEmpty && conFirmPasswordController.text.isNotEmpty) {
         try {
-          final response = await apiService.register(nameController.text, passwordController.text, accountNameController.text, 'emailController.text');
+          final response = await apiService.register(nameController.text, passwordController.text, accountNameController.text, emailController.text);
           if (response) {
             _unfocus();
             _formKey.currentState!.reset();
@@ -98,9 +100,11 @@ class _RegisterFormState extends State<RegisterForm> {
     passwordController.dispose();
     conFirmPasswordController.dispose();
     accountNameController.dispose();
+    emailController.dispose();
     nameFocus.dispose();
     passFocus.dispose();
     accNameFocus.dispose();
+    emailFocus.dispose();
     super.dispose();
   }
 
@@ -148,8 +152,10 @@ class _RegisterFormState extends State<RegisterForm> {
           ),
           const SizedBox(height: 10,),
           systemwidgetcustom.normalTextFormField(controller: accountNameController,hintText: 'ชื่อที่แสดง',keyboardType: TextInputType.name, focus: accNameFocus, hintColor: Colors.black),
+          const SizedBox(height: 10,),
+          systemwidgetcustom.normalTextFormField(controller: emailController,hintText: 'อีเมล',keyboardType: TextInputType.emailAddress, focus: emailFocus, hintColor: Colors.black),
           const SizedBox(height: 30,),
-    
+
           // ปุ่มสมัครบัญชี
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

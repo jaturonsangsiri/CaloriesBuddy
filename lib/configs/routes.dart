@@ -1,4 +1,5 @@
 import 'package:calories_buddy/pages/login_page.dart';
+import 'package:calories_buddy/pages/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:calories_buddy/pages/home_page.dart';
 
@@ -12,7 +13,8 @@ class Routes {
   static Map<String, WidgetBuilder> getAll() => _route;
 
   static final Map<String, WidgetBuilder> _route = {
+    home: (context) => const HomePage(),
     login: (context) => const LoginPage(),
-    home: (context) => const HomePage()
+    register: (context) => const RegisterPage()
   };
 }

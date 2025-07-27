@@ -103,7 +103,7 @@ class _NotificationPageState extends State<NotificationPage> with SingleTickerPr
       child: Scaffold(
         appBar: systemwidgetcustom.appBarCustom(context, 'แจ้งเตือน', [
             IconButton(
-              icon: Icon(Icons.done_all, color: Colors.white, size: Responsive().isTablet ? 35 : 25),
+              icon: Icon(Icons.done_all, color: Colors.white, size: Responsive.isTablet ? 35 : 25),
               onPressed: unreadNotifications.isNotEmpty ? _markAllAsRead : null,
               tooltip: 'อ่านทั้งหมด',
             ),
@@ -121,7 +121,7 @@ class _NotificationPageState extends State<NotificationPage> with SingleTickerPr
                     indicator: BoxDecoration(color: themeState.themeApp? Colors.black45 : Colors.blueGrey[700],  borderRadius: BorderRadius.circular(4), border: Border.all(color: greyOne, width: 1)),
                     labelColor: Colors.white70,
                     unselectedLabelColor: themeState.themeApp? Colors.white : Colors.white54,
-                    labelStyle:  Responsive().isTablet ? TextTheme.of(context).titleLarge : TextTheme.of(context).titleMedium,
+                    labelStyle:  Responsive.isTablet ? TextTheme.of(context).titleLarge : TextTheme.of(context).titleMedium,
                     tabs: [
                       Tab(
                         child: Row(

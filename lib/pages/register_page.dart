@@ -24,13 +24,13 @@ class RegisterPage extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Container(
-                        height: Responsive().height * 0.22,
-                        width: Responsive().width,
+                        height: Responsive.height * 0.22,
+                        width: Responsive.width,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
-                            colors: [Colors.lightBlue],
+                            colors: [Colors.lightBlue.shade400,Colors.lightBlue.shade600],
                           ),
                           borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10),bottomRight: Radius.circular(10)),
                         ),
@@ -50,10 +50,10 @@ class RegisterPage extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.all(25),
                         margin: const EdgeInsets.symmetric(vertical: 30),
-                        height: 410,
-                        width: math.min(400, Responsive().width * 0.9),
+                        height: 480,
+                        width: math.min(400, Responsive.width * 0.9),
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: greyTwo,
                           borderRadius: BorderRadius.circular(10),
                           boxShadow: [
                             BoxShadow(
@@ -71,22 +71,22 @@ class RegisterPage extends StatelessWidget {
                         child: RegisterForm(),
                       ),
                   
-                      Spacer(),
+                      const Spacer(),
                       Column(
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text('มีบัญชีอยู่แล้ว?', style: Responsive().isTablet ? Theme.of(context).textTheme.bodyLarge : Theme.of(context).textTheme.labelLarge),
+                              Text('มีบัญชีอยู่แล้ว?', style: Responsive.isTablet ? Theme.of(context).textTheme.bodyLarge : Theme.of(context).textTheme.labelLarge),
                               GestureDetector(
                                 onTap: () => Navigator.pop(context),
-                                child: Text(' เข้าสู่ระบบ',style: TextStyle(color: greyOne,fontSize: Responsive().isTablet ? 16 : 14),
+                                child: Text(' เข้าสู่ระบบ',style: TextStyle(color: greyOne,fontSize: Responsive.isTablet ? 16 : 14),
                                 ),
                               ),
                             ],
                           ),
                           const SizedBox(height: 20),
-                          Text('Version: ${Versions.version}', style: Responsive().isTablet? Theme.of(context).textTheme.bodyLarge : Theme.of(context).textTheme.labelLarge),
+                          Text('Version: ${Versions.version}', style: Responsive.isTablet? Theme.of(context).textTheme.bodyLarge : Theme.of(context).textTheme.labelLarge),
                           const SizedBox(height: 20),
                         ],
                       ),

@@ -10,12 +10,12 @@ class NotificationWidget {
       builder: (context, themeState) {
         Color textColor = themeState.themeApp ? Colors.white : Colors.black87;
         return SizedBox(
-          height: Responsive().isTablet ? 80 : 60,
+          height: Responsive.isTablet ? 80 : 60,
           child: ListTile(
             leading: icon,
-            title: Text(title, style: Responsive().isTablet ? TextTheme.of(context).titleLarge!.copyWith(color: textColor) : TextTheme.of(context).bodyMedium!.copyWith(color: textColor)),
-            subtitle: Text(subtitle, style: Responsive().isTablet ? TextTheme.of(context).titleMedium!.copyWith(color: textColor) : TextTheme.of(context).bodySmall!.copyWith(color: textColor)),
-            trailing: Column(children: [Text(time, style: Responsive().isTablet ? TextTheme.of(context).titleMedium!.copyWith(color: textColor) : TextTheme.of(context).bodySmall!.copyWith(color: textColor)), Text(date, style: Responsive().isTablet ? TextTheme.of(context).titleMedium!.copyWith(color: textColor) : TextTheme.of(context).bodySmall!.copyWith(color: textColor))])
+            title: Text(title, style: Responsive.isTablet ? TextTheme.of(context).titleLarge!.copyWith(color: textColor) : TextTheme.of(context).bodyMedium!.copyWith(color: textColor)),
+            subtitle: Text(subtitle, style: Responsive.isTablet ? TextTheme.of(context).titleMedium!.copyWith(color: textColor) : TextTheme.of(context).bodySmall!.copyWith(color: textColor)),
+            trailing: Column(children: [Text(time, style: Responsive.isTablet ? TextTheme.of(context).titleMedium!.copyWith(color: textColor) : TextTheme.of(context).bodySmall!.copyWith(color: textColor)), Text(date, style: Responsive.isTablet ? TextTheme.of(context).titleMedium!.copyWith(color: textColor) : TextTheme.of(context).bodySmall!.copyWith(color: textColor))])
           ),
         );
       },

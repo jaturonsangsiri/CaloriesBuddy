@@ -1,11 +1,10 @@
-import 'package:calories_buddy/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:calories_buddy/bloc/theme/theme_bloc.dart';
 import 'package:calories_buddy/contants/contants.dart';
-import 'package:calories_buddy/pages/home_page.dart';
 import 'package:calories_buddy/widgets/utils/respone.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:calories_buddy/configs/routes.dart' as custom_route;
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -13,11 +12,12 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // เรียกใช้เช็คขนาดหน้าจอเพื่อปรับ UI ตาม
-    Responsive().init(context);
+    Responsive.init(context);
     
     return BlocBuilder<ThemeBloc, ThemeState>(
       builder: (context, themeState) {
         return MaterialApp(
+          scaffoldMessengerKey: custom_route.Routes.scaffoldMessengerState,
           // ไม่ให้แสดง banner debug สีแดง
           debugShowCheckedModeBanner: false,
           // ปรับให้แอปรองรับภาษาไทย
@@ -80,9 +80,9 @@ class App extends StatelessWidget {
               child: child!, 
             );
           },
-          //initialRoute: '/foodDetail',
-          //routes: custom_route.Routes.getAll(),
-          home: LoginPage(),
+          initialRoute: '/register',
+          routes: custom_route.Routes.getAll(),
+          //home: RegisterPage(),
         );
       },
     );

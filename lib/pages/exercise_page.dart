@@ -541,8 +541,8 @@ class _ExerciseScreenState extends State<ExercisePage> with TickerProviderStateM
                           backgroundColor: Colors.transparent,
                           child: Container(
                             padding: EdgeInsets.all(15),
-                            height: Responsive().isTablet ? 400 : 300,
-                            width: Responsive().isTablet ? 600 : 400,
+                            height: Responsive.isTablet ? 400 : 300,
+                            width: Responsive.isTablet ? 600 : 400,
                             decoration: BoxDecoration(color: cardBgColorDarkTheme, borderRadius: BorderRadius.circular(20)),
                             child: Column(
                               children: [
@@ -570,10 +570,10 @@ class _ExerciseScreenState extends State<ExercisePage> with TickerProviderStateM
                                       icon: Icon(
                                         Icons.close_rounded, 
                                         color: Colors.white, 
-                                        size: Responsive().isTablet ? 35 : 30
+                                        size: Responsive.isTablet ? 35 : 30
                                       ),
                                       colorbg: greyOne,
-                                      padding: Responsive().isTablet ? 15 : 10,
+                                      padding: Responsive.isTablet ? 15 : 10,
                                       function: () => Navigator.pop(context)
                                     ),
                                   ],
