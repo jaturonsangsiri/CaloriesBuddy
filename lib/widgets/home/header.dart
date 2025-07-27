@@ -24,8 +24,8 @@ class _HeaderState extends State<Header> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: Responsive.width,
-      height: Responsive.height * 0.15,
+      width: Responsive().width,
+      height: Responsive().height * 0.15,
       decoration: BoxDecoration(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)), color: Color.fromRGBO(42, 46, 48, 1)),
       child: SafeArea(
         child: Padding(
@@ -46,7 +46,7 @@ class _HeaderState extends State<Header> {
                           decoration: BoxDecoration(color: Colors.white60, borderRadius: BorderRadius.circular(10)),
                           child: systemwidgetcustom.circleImageButton(userState.pic, 18, 50, () {}, 10),
                         ),
-                        Expanded(child: Text(userState.display, style: Responsive.isTablet ? TextTheme.of(context).headlineMedium!.copyWith(fontWeight: FontWeight.w900, color: Colors.white) : TextTheme.of(context).titleLarge!.copyWith(fontWeight: FontWeight.w900, color: Colors.white), overflow: TextOverflow.ellipsis)),
+                        Expanded(child: Text(userState.display, style: Responsive().isTablet ? TextTheme.of(context).headlineMedium!.copyWith(fontWeight: FontWeight.w900, color: Colors.white) : TextTheme.of(context).titleLarge!.copyWith(fontWeight: FontWeight.w900, color: Colors.white), overflow: TextOverflow.ellipsis)),
                       ],
                     );
                   },
@@ -57,9 +57,9 @@ class _HeaderState extends State<Header> {
               Row(
                 children: [
                   CircleIcon(
-                    icon: Icon(Icons.notifications, color: Colors.white, size: Responsive.isTablet ? 35 : 30),
+                    icon: Icon(Icons.notifications, color: Colors.white, size: Responsive().isTablet ? 35 : 30),
                     colorbg: greyOne,
-                    padding: Responsive.isTablet ? 15 : 10,
+                    padding: Responsive().isTablet ? 15 : 10,
                     function: () => Navigator.push(context, MaterialPageRoute(builder: (context) => NotificationPage()))
                   ),
                   const SizedBox(width: 10),
@@ -68,7 +68,7 @@ class _HeaderState extends State<Header> {
                     color: Color.fromRGBO(115, 115, 119, 1),
                     child: Padding(
                       padding: const EdgeInsets.only(right: 8.0),
-                      child: Icon(Icons.menu, color: Colors.white, size: Responsive.isTablet ? 35 : 30),
+                      child: Icon(Icons.menu, color: Colors.white, size: Responsive().isTablet ? 35 : 30),
                     ),
                     itemBuilder: (BuildContext context) {
                       return <PopupMenuEntry<CustomPopupMenuItem>>[

@@ -26,9 +26,9 @@ class Data {
   String? id;
   String? role;
   String? name;
-  String? pic;
+  String? profileImg;
 
-  Data({required this.token, required this.refreshToken, required this.id, required this.role, required this.name, required this.pic});
+  Data({required this.token, required this.refreshToken, required this.id, required this.role, required this.name, required this.profileImg});
 
   Data.fromJson(Map<String, dynamic> json) {
     token = json['token'];
@@ -36,7 +36,7 @@ class Data {
     id = json['id'];
     role = json['role'];
     name = json['name'];
-    pic = json['pic'];
+    profileImg = json['profileImg'];
   }
 
   Map<String, dynamic> toJson() {
@@ -46,7 +46,7 @@ class Data {
     data['id'] = id;
     data['role'] = role;
     data['name'] = name;
-    data['pic'] = pic;
+    data['profileImg'] = profileImg;
     return data;  
   }
 }

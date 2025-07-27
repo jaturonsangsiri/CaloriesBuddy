@@ -181,7 +181,7 @@ class _ProfileFormState extends State<ProfileForm> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('เปลี่ยนธีมแอป', style: TextTheme.of(context).titleMedium!.copyWith(color: Colors.white70, fontSize: Responsive.isTablet ? 20 : 18, fontWeight: FontWeight.bold)),
+                          Text('เปลี่ยนธีมแอป', style: TextTheme.of(context).titleMedium!.copyWith(color: Colors.white70, fontSize: Responsive().isTablet ? 20 : 18, fontWeight: FontWeight.bold)),
                           CustomSwitch(value: state.themeApp, onChanged: (value) => context.read<ThemeBloc>().add(SetTheme()), inactiveColor: Colors.grey.shade400, thumbColor: Colors.white, activeColor: Colors.blueAccent),
                         ],
                       ),
@@ -222,7 +222,7 @@ class _ProfileFormState extends State<ProfileForm> {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  Text('ชื่อผู้ใช้', style: TextTheme.of(context).titleMedium!.copyWith(color: Colors.white70, fontSize: Responsive.isTablet ? 20 : 18, fontWeight: FontWeight.bold)),
+                  Text('ชื่อผู้ใช้', style: TextTheme.of(context).titleMedium!.copyWith(color: Colors.white70, fontSize: Responsive().isTablet ? 20 : 18, fontWeight: FontWeight.bold)),
                   systemwidgetcustom.normalTextFormField(hintText: 'ชื่อผู้ใช้', controller: nameController, keyboardType: TextInputType.text, focus: nameFocusNode, hintColor: state.themeApp? Colors.white70 : Colors.black),
                   const SizedBox(height: 10,),
                   ElevatedButton.icon(
@@ -230,13 +230,13 @@ class _ProfileFormState extends State<ProfileForm> {
                     onPressed: null, //() => changeDisplayname(context)
                     style: ElevatedButton.styleFrom(backgroundColor: Colors.white, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))), label: const Text('บันทึกชื่อ',style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.bold),),),
                   const SizedBox(height: 20),
-                  Text('รหัสผ่านเก่า', style: TextTheme.of(context).titleMedium!.copyWith(color: Colors.white70, fontSize: Responsive.isTablet ? 20 : 18, fontWeight: FontWeight.bold)),
+                  Text('รหัสผ่านเก่า', style: TextTheme.of(context).titleMedium!.copyWith(color: Colors.white70, fontSize: Responsive().isTablet ? 20 : 18, fontWeight: FontWeight.bold)),
                   buildTextFormField('รหัสผ่านเก่า', oldPasswrodController, oldPasswrodFocusNode, state.themeApp),
                   const SizedBox(height: 10),
-                  Text('รหัสผ่านใหม่', style: TextTheme.of(context).titleMedium!.copyWith(color: Colors.white70, fontSize: Responsive.isTablet ? 20 : 18, fontWeight: FontWeight.bold)),
+                  Text('รหัสผ่านใหม่', style: TextTheme.of(context).titleMedium!.copyWith(color: Colors.white70, fontSize: Responsive().isTablet ? 20 : 18, fontWeight: FontWeight.bold)),
                   buildTextFormField('รหัสผ่านใหม่', newPasswrodController, newPasswrodFocusNode, state.themeApp),
                   const SizedBox(height: 10),
-                  Text('ยืนยันรหัสผ่านใหม่', style: TextTheme.of(context).titleMedium!.copyWith(color: Colors.white70, fontSize: Responsive.isTablet ? 20 : 18, fontWeight: FontWeight.bold)),
+                  Text('ยืนยันรหัสผ่านใหม่', style: TextTheme.of(context).titleMedium!.copyWith(color: Colors.white70, fontSize: Responsive().isTablet ? 20 : 18, fontWeight: FontWeight.bold)),
                   buildTextFormField('ยืนยันรหัสผ่านใหม่', confirmPasswrodController, confirmPasswrodNode, state.themeApp),
                   const SizedBox(height: 10),
                   ElevatedButton.icon(

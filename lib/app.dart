@@ -1,3 +1,4 @@
+import 'package:calories_buddy/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:calories_buddy/bloc/theme/theme_bloc.dart';
@@ -12,7 +13,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // เรียกใช้เช็คขนาดหน้าจอเพื่อปรับ UI ตาม
-    Responsive.init(context);
+    Responsive().init(context);
     
     return BlocBuilder<ThemeBloc, ThemeState>(
       builder: (context, themeState) {
@@ -81,7 +82,7 @@ class App extends StatelessWidget {
           },
           //initialRoute: '/foodDetail',
           //routes: custom_route.Routes.getAll(),
-          home: HomePage(),
+          home: LoginPage(),
         );
       },
     );

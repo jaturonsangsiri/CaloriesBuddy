@@ -5,7 +5,6 @@ import 'package:calories_buddy/contants/contants.dart';
 import 'package:calories_buddy/contants/date_time_constants.dart';
 import 'package:calories_buddy/configs/routes.dart' as custom_route;
 import 'package:calories_buddy/models/food/food.dart';
-import 'package:calories_buddy/models/food/food_response.dart';
 import 'package:calories_buddy/models/login.dart';
 import 'package:calories_buddy/models/user/refresh.dart';
 import 'package:calories_buddy/models/user/user.dart';
@@ -145,6 +144,25 @@ class APIService {
         return foodList;
       } else {
         throw Exception('Failed to get food');
+      }
+    } on DioException catch (error) {
+      if (kDebugMode) print(error.message);
+      throw Exception(error.response?.data['message'] ?? 'Unknown error occurred');
+    }
+  }
+
+  Future<bool> register(String username, String password, String display, String email) async {
+    try {
+      final Response response = await _dio.post('/users', data: {
+        "name": display,
+        "accName": username,
+        "passwword": password,
+        "email": email
+      });
+      if (response.statusCode == 201) {
+        return true;
+      } else {
+        throw Exception('Failed to register');
       }
     } on DioException catch (error) {
       if (kDebugMode) print(error.message);

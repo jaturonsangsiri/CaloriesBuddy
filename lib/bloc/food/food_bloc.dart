@@ -1,4 +1,3 @@
-import 'package:calories_buddy/models/food/food_response.dart';
 import 'package:calories_buddy/services/api_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
