@@ -80,7 +80,7 @@ class App extends StatelessWidget {
               child: child!, 
             );
           },
-          initialRoute: '/register',
+          initialRoute: '/login',
           routes: custom_route.Routes.getAll(),
           //home: RegisterPage(),
         );

@@ -90,8 +90,8 @@ class APIService {
 
   Future<Login> checkLogin(String username, String password) async {
     try {
-      final Response response = await _dio.post('/users/login', data: {'username': username, 'password': password});
-      if (response.statusCode != 200) {
+      final Response response = await _dio.post('/auth/login', data: {'username': username, 'password': password});
+      if (response.statusCode == 200) {
         Login user = Login.fromJson(json.decode(jsonEncode(response.data)));
         await storage.saveTokens(user.data!.token!, user.data!.refreshToken!);
 
