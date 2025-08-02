@@ -46,7 +46,7 @@ class CalorieTodayBox extends StatelessWidget {
                 print('------------------------------------------- carbohydrate $carbohydrate -------------------------------------');
               }
 
-              context.read<UserBloc>().add(SetUser(tdee: tdee, maxProtien: protein, maxFat: fat, maxCabohydrate: carbohydrate));
+              context.read<UserBloc>().add(SetUser(loading: false, tdee: tdee, maxProtien: protein, maxFat: fat, maxCabohydrate: carbohydrate));
 
               return user.loading ? Center(child: CircularProgressIndicator()) : Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -122,7 +122,7 @@ class CalorieTodayBox extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(title, style: TextTheme.of(context).titleMedium!.copyWith(fontWeight: FontWeight.bold, color: themeState.themeApp ? Colors.black45 : Colors.white)),
-            CustomProgressBar(percentage: progess),
+            CustomProgressBar(percentage: progess.isNaN? 0 : progess),
             Text(detail, style: TextTheme.of(context).titleMedium!.copyWith(color: themeState.themeApp ? Colors.black45 : Colors.white))
           ],
         );

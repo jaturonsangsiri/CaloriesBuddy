@@ -7,7 +7,7 @@ sealed class UserEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class SetUser extends UserEvent {
+class GetUser extends UserEvent {
   final String? display;
   final String? pic;
   final String? role;
@@ -28,12 +28,25 @@ class SetUser extends UserEvent {
   final num? age;
   final String? gender;
 
-  const SetUser({this.display, this.pic, this.role, this.id, this.username, this.loading, this.error = false, this.carbohydrate, this.maxCabohydrate, this.protien, this.maxProtien,
+  const GetUser({this.display, this.pic, this.role, this.id, this.username, this.loading, this.error = false, this.carbohydrate, this.maxCabohydrate, this.protien, this.maxProtien,
    this.fat, this.maxFat, this.calories, this.tdee, this.weight, this.height, this.age, this.gender
   });
 
   @override
   List<Object> get props => [display!, pic!, role!, id!, username!, loading!, error!, carbohydrate!, maxCabohydrate!, protien!, maxProtien!, fat!, maxFat!, calories!, tdee!, weight!, height!, age!, gender!];
+}
+
+class SetUser extends UserEvent {
+  final bool? loading;
+  final num? tdee;
+  final num? maxCabohydrate;
+  final num? maxProtien;
+  final num? maxFat;
+
+  const SetUser({this.loading, this.tdee, this.maxCabohydrate, this.maxProtien, this.maxFat});
+
+  @override
+  List<Object> get props => [loading!, maxCabohydrate!, maxProtien!, maxFat!, tdee!];
 }
 
 class SetError extends UserEvent {

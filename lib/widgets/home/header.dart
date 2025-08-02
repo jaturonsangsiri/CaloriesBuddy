@@ -1,3 +1,4 @@
+import 'package:calories_buddy/services/preference.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:calories_buddy/bloc/theme/theme_bloc.dart';
@@ -8,6 +9,7 @@ import 'package:calories_buddy/pages/profile_page.dart';
 import 'package:calories_buddy/widgets/icons_style.dart';
 import 'package:calories_buddy/widgets/system_widget_custom.dart';
 import 'package:calories_buddy/widgets/utils/respone.dart';
+import 'package:calories_buddy/configs/routes.dart' as custom_route;
 
 // แสดงหัวข้อชื่อผู้ใช้ รูปโปรไฟล์ และเมนูแจ้งเตือนและตั้งค่า
 class Header extends StatefulWidget {
@@ -19,6 +21,7 @@ class Header extends StatefulWidget {
 
 class _HeaderState extends State<Header> {
   CustomPopupMenuItem? _selectedItem; // ลบ late และให้เป็น nullable
+  ConfigStorage configStorage = ConfigStorage();
   Systemwidgetcustom systemwidgetcustom = Systemwidgetcustom();
 
   @override
@@ -46,7 +49,7 @@ class _HeaderState extends State<Header> {
                           decoration: BoxDecoration(color: Colors.white60, borderRadius: BorderRadius.circular(10)),
                           child: systemwidgetcustom.circleImageButton(userState.pic, 18, 50, () {}, 10),
                         ),
-                        Expanded(child: Text(userState.display, style: Responsive.isTablet ? TextTheme.of(context).headlineMedium!.copyWith(fontWeight: FontWeight.w900, color: Colors.white) : TextTheme.of(context).titleLarge!.copyWith(fontWeight: FontWeight.w900, color: Colors.white), overflow: TextOverflow.ellipsis)),
+                        Expanded(child: Text(userState.name, style: Responsive.isTablet ? TextTheme.of(context).headlineMedium!.copyWith(fontWeight: FontWeight.w900, color: Colors.white) : TextTheme.of(context).titleLarge!.copyWith(fontWeight: FontWeight.w900, color: Colors.white), overflow: TextOverflow.ellipsis)),
                       ],
                     );
                   },
@@ -93,16 +96,15 @@ class _HeaderState extends State<Header> {
                               systemwidgetcustom.showDialogConfirm(context, 'ออกจากระบบ', 'ท่านต้องการออกจากระบบหรือไม่?', () async {
                                 Navigator.pop(context);
                                 Navigator.pop(context);
-                                // systemwidgetcustom.loadingWidget(context);
+                                systemwidgetcustom.loadingWidget(context);
           
-                                // // ออกจากระบบไปหน้าเข้าสู่ระบบ
-                                // await configStorage.clearTokens();
-                                // if (context.mounted) {
-                                //   context.read<UsersBloc>().add(RemoveUser());
-                                //   context.read<DevicesBloc>().add(ClearDevices());
-                                //   Navigator.of(context).pop();
-                                //   Navigator.pushNamedAndRemoveUntil(context, custom_route.Route.login, (route) => false);
-                                // }
+                                // ออกจากระบบไปหน้าเข้าสู่ระบบ
+                                await configStorage.clearToken();
+                                if (context.mounted) {
+                                  context.read<UserBloc>().add(RemoveUser());
+                                  Navigator.of(context).pop();
+                                  Navigator.pushNamedAndRemoveUntil(context, custom_route.Routes.login, (route) => false);
+                                }
                               }, Colors.blueGrey, Colors.red[400]!);
                             },
                           ),

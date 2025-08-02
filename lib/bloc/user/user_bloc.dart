@@ -13,22 +13,23 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   final configStorage = ConfigStorage();
   
   UserBloc() : super(const UserState()) {
+    on<GetUser>(_onGetUser);
     on<SetUser>(_onSetUser);
     on<RemoveUser>(_onRemoveUser);
     on<SetError>(_onSetError);
   }
 
-  void _onSetUser(SetUser event, Emitter<UserState> emit) async {
+  void _onGetUser(GetUser event, Emitter<UserState> emit) async {
     try {
       final userId = await configStorage.getUserId();
       final user = await api.getUserProfile(userId!);
       emit(state.copyWith(
         loading: event.loading,
-        display: user.data!.display,
+        name: user.data!.name,
         pic: user.data!.pic,
         role: user.data!.role,
         id: user.data!.id,
-        username: user.data!.username,
+        accName: user.data!.accName,
         carbohydrate: user.data!.carbohydrate,
         maxCabohydrate: user.data!.maxCabohydrate,
         protien: user.data!.protien,
@@ -47,13 +48,23 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     }
   }
 
+  void _onSetUser(SetUser event, Emitter<UserState> emit) {
+    emit(state.copyWith(
+      loading: event.loading,
+      tdee: event.tdee,
+      maxCabohydrate: event.maxCabohydrate,
+      maxFat: event.maxFat,
+      maxProtien: event.maxProtien
+    ));
+  }
+
   void _onRemoveUser(RemoveUser event, Emitter<UserState> emit) {
     emit(state.copyWith(
-      display: '',
+      name: '',
       pic: URL.DEFAULT_PIC,
       role: 'GUEST',
       id: '',
-      username: '',
+      accName: '',
       error: false,
       carbohydrate: 0, 
       maxCabohydrate: 0,

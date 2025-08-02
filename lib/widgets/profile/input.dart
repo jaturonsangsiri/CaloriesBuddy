@@ -165,8 +165,8 @@ class _ProfileFormState extends State<ProfileForm> {
   Widget build(BuildContext context) {
     return BlocBuilder<UserBloc, UserState>(
       builder: (context, snapshot) {
-        nameController.text = snapshot.display;
-        username = snapshot.username;
+        nameController.text = snapshot.name;
+        username = snapshot.name;
         userID = snapshot.id;
         return Form(
           key: _formKey,

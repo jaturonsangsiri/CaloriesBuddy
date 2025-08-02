@@ -24,11 +24,11 @@ class UserResponse {
 }
 
 class UserData {
-  String? display;
+  String? name;
   String? pic;
   String? role;
   String? id;
-  String? username;
+  String? accName;
   String? password;
   num? carbohydrate;
   num? maxCabohydrate;
@@ -45,13 +45,13 @@ class UserData {
   num? age;
   String? gender;
 
-  UserData({required this.display, required this.pic, required this.role, required this.id, required this.username, required this.carbohydrate, required this.maxCabohydrate, required this.protien, required this.maxProtien, required this.fat, 
-  required this.maxFat, required this.calories, required this.tdee, required this.weight, required this.height, required this.age, required this.gender, required this.loading, required this.error});
+  UserData({this.name, this.pic, this.role, this.id, this.accName, this.carbohydrate, this.maxCabohydrate, this.protien, this.maxProtien, this.fat, 
+  this.maxFat, this.calories, this.tdee, this.weight, this.height, this.age, this.gender, this.loading, this.error});
 
   UserData.fromJson(Map<String?, dynamic> json) {
     id = json['id'];
-    username = json['username'];
-    display = json['display'];
+    accName = json['accName'];
+    name = json['name'];
     pic = json['pic'];
     role = json['role'];
     carbohydrate = json['carbohydrate'];
@@ -71,8 +71,8 @@ class UserData {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
-    data['username'] = username;
-    data['display'] = display;
+    data['accName'] = accName;
+    data['name'] = name;
     data['pic'] = pic;
     data['role'] = role;
     data['carbohydrate'] = carbohydrate;
