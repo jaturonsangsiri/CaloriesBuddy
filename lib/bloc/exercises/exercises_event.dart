@@ -1,5 +1,5 @@
+import 'package:calories_buddy/models/exercise/exercise_response.dart';
 import 'package:equatable/equatable.dart';
-import 'package:calories_buddy/models/exercise.dart';
 
 sealed class ExerciseEvent extends Equatable {
   const ExerciseEvent();

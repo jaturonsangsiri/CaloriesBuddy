@@ -1,11 +1,11 @@
 import 'dart:io';
 
+import 'package:calories_buddy/models/exercise/exercise_response.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:calories_buddy/bloc/theme/theme_bloc.dart';
 import 'package:calories_buddy/contants/contants.dart';
-import 'package:calories_buddy/models/exercise.dart';
 import 'package:calories_buddy/models/food/food.dart';
 import 'package:calories_buddy/models/tag.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -278,8 +278,8 @@ class Systemwidgetcustom {
         child: Stack(
           children: [
             //Positioned(left: 10, top: 10, child: ClipRRect(borderRadius: BorderRadius.circular(10), child: Image.asset(exercise.image, fit: BoxFit.cover, width: 80, height: 80))),
-            Positioned(left: 100, right: 50, top: 10, child: Text(exercise.name, maxLines: 1, overflow: TextOverflow.ellipsis, style: TextTheme.of(context).titleMedium!.copyWith(fontWeight: FontWeight.bold, color: Colors.white))),
-            Positioned(left: 100, right: 10, top: 35, child: Text(exercise.detail, maxLines: 2, overflow: TextOverflow.ellipsis, style: TextTheme.of(context).bodySmall!.copyWith(color: Colors.white))),
+            Positioned(left: 100, right: 50, top: 10, child: Text(exercise.name!, maxLines: 1, overflow: TextOverflow.ellipsis, style: TextTheme.of(context).titleMedium!.copyWith(fontWeight: FontWeight.bold, color: Colors.white))),
+            Positioned(left: 100, right: 10, top: 35, child: Text(exercise.detail!, maxLines: 2, overflow: TextOverflow.ellipsis, style: TextTheme.of(context).bodySmall!.copyWith(color: Colors.white))),
             Positioned(right: 10, bottom: 10, child: GestureDetector(onTap: () {
               showDialog(
                 context: context,
@@ -304,17 +304,17 @@ class Systemwidgetcustom {
                         children: [
                           Text('ออกกำลังกาย', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: const Color.fromRGBO(84, 84, 84, 1), decoration: TextDecoration.none)),
                           const SizedBox(height: 10),
-                          ClipRRect(borderRadius: BorderRadius.circular(10), child: Image.asset(exercise.image, fit: BoxFit.cover, width: double.infinity, height: 150)),
+                          ClipRRect(borderRadius: BorderRadius.circular(10), child: Image.asset(exercise.image!, fit: BoxFit.cover, width: double.infinity, height: 150)),
                           const SizedBox(height: 6),
                     
                           Text('รายละเอียด', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: const Color.fromRGBO(84, 84, 84, 1))),
                           SizedBox(height: 6),
-                          Text(exercise.detail, style: TextTheme.of(context).titleSmall!.copyWith(color: const Color.fromRGBO(84, 84, 84, 1))),
+                          Text(exercise.detail!, style: TextTheme.of(context).titleSmall!.copyWith(color: const Color.fromRGBO(84, 84, 84, 1))),
                           const SizedBox(height: 8),
 
                           Text('กลุ่มกล้ามเนื้อ', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: const Color.fromRGBO(84, 84, 84, 1))),
                           SizedBox(height: 6),
-                          Text(exercise.muscle, style: TextTheme.of(context).titleSmall!.copyWith(color: const Color.fromRGBO(84, 84, 84, 1))),
+                          Text(exercise.muscle!, style: TextTheme.of(context).titleSmall!.copyWith(color: const Color.fromRGBO(84, 84, 84, 1))),
                           const SizedBox(height: 8),
                     
                           Text('การเผาพลาญพลังงาน', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: const Color.fromRGBO(84, 84, 84, 1))),
@@ -324,12 +324,12 @@ class Systemwidgetcustom {
                     
                           Text('ระดับ', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: const Color.fromRGBO(84, 84, 84, 1))),
                           SizedBox(height: 6),
-                          Text(difficultyExercise(exercise.difficulty), style: TextTheme.of(context).titleSmall!.copyWith(color: const Color.fromRGBO(84, 84, 84, 1))),
+                          Text(difficultyExercise(exercise.difficulty!), style: TextTheme.of(context).titleSmall!.copyWith(color: const Color.fromRGBO(84, 84, 84, 1))),
                           const SizedBox(height: 8),
                     
                           Text('อุปกรณ์ที่ใช้', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: const Color.fromRGBO(84, 84, 84, 1))),
                           SizedBox(height: 6),
-                          Text(exercise.equipment, style: TextTheme.of(context).titleSmall!.copyWith(color: const Color.fromRGBO(84, 84, 84, 1))),
+                          Text(exercise.equipment!, style: TextTheme.of(context).titleSmall!.copyWith(color: const Color.fromRGBO(84, 84, 84, 1))),
                           const SizedBox(height: 8),
                     
                           Text('จำนวนเซ็ต', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: const Color.fromRGBO(84, 84, 84, 1))),

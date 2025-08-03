@@ -1,5 +1,5 @@
+import 'package:calories_buddy/models/exercise/exercise_response.dart';
 import 'package:equatable/equatable.dart';
-import 'package:calories_buddy/models/exercise.dart';
 
 class ExerciseState extends Equatable {
   final Map<String, List<Exercise>> exerciseList;

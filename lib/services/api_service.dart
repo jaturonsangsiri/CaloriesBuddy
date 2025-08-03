@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:calories_buddy/contants/contants.dart';
 import 'package:calories_buddy/contants/date_time_constants.dart';
 import 'package:calories_buddy/configs/routes.dart' as custom_route;
+import 'package:calories_buddy/models/exercise/exercise_response.dart';
 import 'package:calories_buddy/models/food/food.dart';
 import 'package:calories_buddy/models/login.dart';
 import 'package:calories_buddy/models/user/refresh.dart';
@@ -90,7 +91,7 @@ class APIService {
 
   Future<Login> checkLogin(String username, String password) async {
     try {
-      final Response response = await _dio.post('/auth/login', data: {'username': username, 'password': password});
+      final Response response = await _dio.post('/auth/login', data: {'accName': username, 'password': password});
       if (response.statusCode == 200) {
         Login user = Login.fromJson(json.decode(jsonEncode(response.data)));
         await storage.saveTokens(user.data!.token!, user.data!.refreshToken!);
@@ -124,7 +125,7 @@ class APIService {
     try {
       final Response response = await _dio.get('/users/$userId');
       if (response.statusCode == 200) {
-        UserResponse user = UserResponse.fromJson(json.decode(response.data));
+        UserResponse user = UserResponse.fromJson(json.decode(jsonEncode(response.data)));
         return user;
       } else {
         throw Exception('Failed to get user profile');
@@ -144,6 +145,21 @@ class APIService {
         return foodList;
       } else {
         throw Exception('Failed to get food');
+      }
+    } on DioException catch (error) {
+      if (kDebugMode) print(error.message);
+      throw Exception(error.response?.data['message'] ?? 'Unknown error occurred');
+    }
+  }
+
+  Future<ExerciseResponse> getExercises() async {
+    try {
+      final Response response = await _dio.get('/workout');
+      if (response.statusCode == 200) {
+        ExerciseResponse exercises = ExerciseResponse.fromJson(json.decode(jsonEncode(response.data)));
+        return exercises;
+      } else {
+        throw Exception('Failed to get exercises');
       }
     } on DioException catch (error) {
       if (kDebugMode) print(error.message);
