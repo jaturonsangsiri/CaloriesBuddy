@@ -8,7 +8,7 @@ class FoodState extends Equatable {
     this.showList = const []
   });
 
-  FoodState copyWidth({List<Food>? foodList, List<Food>? showList}) {
+  FoodState copyWith({List<Food>? foodList, List<Food>? showList}) {
     return FoodState(foodList: foodList ?? this.foodList, showList: showList ?? this.showList);
   }
 

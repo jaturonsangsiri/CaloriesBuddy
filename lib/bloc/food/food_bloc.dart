@@ -17,14 +17,14 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
   }
 
   void _onGetFoodList(GetFoodList event, Emitter<FoodState> emit) {
-    emit(state.copyWidth(
+    emit(state.copyWith(
       showList: event.showList ?? [],
       foodList: event.foodList ?? [],
     ));
   }
 
   void _onFilterFood(FilterFood event, Emitter<FoodState> emit) {
-    emit(state.copyWidth(
+    emit(state.copyWith(
       showList: event.showList ?? [],
     ));
   }
@@ -32,7 +32,7 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
   void _onSetFood(SetFood event, Emitter<FoodState> emit) async {
     try {
       final foods = await api.getAllFoods();
-      emit(state.copyWidth(
+      emit(state.copyWith(
         foodList: event.foodList ?? foods,
         showList: event.showList ?? foods,
       ));

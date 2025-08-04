@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:calories_buddy/models/meals.dart';
+import 'package:calories_buddy/models/meal/meals.dart';
 import 'package:calories_buddy/widgets/icons_style.dart';
 
 class MealBox extends StatelessWidget {
@@ -14,7 +14,7 @@ class MealBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final totalCalories = meal.foods.fold(0, (sum, food) => sum + (food.calories ?? 0).toInt());
+    final totalCalories = meal.foods!.fold(0, (sum, food) => sum + (food.calories ?? 0).toInt());
     
     return Card(
       elevation: 4,
@@ -41,7 +41,7 @@ class MealBox extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(meal.name, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white, letterSpacing: 0.3)),
+                      Text(meal.name!, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white, letterSpacing: 0.3)),
                       const SizedBox(height: 4),
                       // แสดงแคลอรี่ในรูปแบบที่สวยงามขึ้น
                       Container(
@@ -77,7 +77,7 @@ class MealBox extends StatelessWidget {
           ),
           
           // เพิ่มส่วนแสดงตัวอย่างรายการอาหาร (ถ้ามี)
-          if (meal.foods.isNotEmpty) ...[
+          if (meal.foods!.isNotEmpty) ...[
             Divider(color: Colors.grey[700], height: 1, thickness: 0.5, indent: 16, endIndent: 16),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -85,7 +85,7 @@ class MealBox extends StatelessWidget {
                 children: [
                   Icon(Icons.restaurant, size: 14, color: Colors.grey[400]),
                   SizedBox(width: 6),
-                  Text('${meal.foods.length} รายการ', style: TextTheme.of(context).labelMedium!.copyWith(color: Colors.grey[400])),
+                  Text('${meal.foods!.length} รายการ', style: TextTheme.of(context).labelMedium!.copyWith(color: Colors.grey[400])),
                   Spacer(),
                   TextButton(
                     onPressed: () {},

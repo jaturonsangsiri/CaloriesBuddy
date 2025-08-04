@@ -7,6 +7,7 @@ import 'package:calories_buddy/configs/routes.dart' as custom_route;
 import 'package:calories_buddy/models/exercise/exercise_response.dart';
 import 'package:calories_buddy/models/food/food.dart';
 import 'package:calories_buddy/models/login.dart';
+import 'package:calories_buddy/models/meal/meals.dart';
 import 'package:calories_buddy/models/user/refresh.dart';
 import 'package:calories_buddy/models/user/user.dart';
 import 'package:calories_buddy/services/preference.dart';
@@ -160,6 +161,21 @@ class APIService {
         return exercises;
       } else {
         throw Exception('Failed to get exercises');
+      }
+    } on DioException catch (error) {
+      if (kDebugMode) print(error.message);
+      throw Exception(error.response?.data['message'] ?? 'Unknown error occurred');
+    }
+  }
+
+  Future<MealResponse> getMeals(String userId) async {
+    try {
+      final Response response = await _dio.get('/meal/$userId');
+      if (response.statusCode == 200) {
+        MealResponse meals = MealResponse.fromJson(json.decode(jsonEncode(response.data)));
+        return meals;
+      } else {
+        throw Exception('Failed to get meals');
       }
     } on DioException catch (error) {
       if (kDebugMode) print(error.message);

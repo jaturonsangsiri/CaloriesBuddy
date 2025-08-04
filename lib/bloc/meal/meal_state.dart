@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:calories_buddy/models/meals.dart';
+import 'package:calories_buddy/models/meal/meals.dart';
 
 class MealState extends Equatable {
   final List<Meals> mealList;
@@ -7,7 +7,7 @@ class MealState extends Equatable {
     this.mealList = const []
   });
 
-  MealState copyWidth({List<Meals>? mealList}) {
+  MealState copyWith({List<Meals>? mealList}) {
     return MealState(mealList: mealList ?? this.mealList);
   }
 
