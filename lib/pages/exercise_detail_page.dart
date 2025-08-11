@@ -18,7 +18,7 @@ class ExerciseDetailPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ClipRRect(borderRadius: BorderRadius.circular(10), child: Image.asset(exercise.image!, fit: BoxFit.cover, width: double.infinity, height: 250)),
+              ClipRRect(borderRadius: BorderRadius.circular(10), child: Image.network(exercise.image!, fit: BoxFit.cover, width: double.infinity, height: 250)),
               const SizedBox(height: 6),
         
               Text('รายละเอียด', style: TextTheme.of(context).titleMedium!.copyWith(fontWeight: FontWeight.bold, color: Colors.white)),

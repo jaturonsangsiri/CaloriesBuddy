@@ -26,7 +26,7 @@ class _InputState extends State<Input> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          systemwidgetcustom.normalTextFormField(controller: plateController,hintText: 'จำนวนจาน',keyboardType: TextInputType.number, focus: plateFocus, hintColor: Colors.white),
+          systemwidgetcustom.normalTextFormField(controller: plateController,hintText: 'จำนวนกรัม',keyboardType: TextInputType.number, focus: plateFocus, hintColor: Colors.white),
           const SizedBox(height: 50),
 
           SizedBox(

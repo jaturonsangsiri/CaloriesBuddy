@@ -58,7 +58,7 @@ class FoodDetailPage extends StatelessWidget {
                 ]
               ),
               const SizedBox(height: 8),
-              Text('จำนวนจาน', style: TextTheme.of(context).titleLarge!.copyWith(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
+              Text('จำนวนกรัม', style: TextTheme.of(context).titleLarge!.copyWith(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
               Input(),
             ],
           ),

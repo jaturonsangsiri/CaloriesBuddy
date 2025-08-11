@@ -1,3 +1,5 @@
+import 'package:calories_buddy/bloc/meal/meal_state.dart';
+import 'package:calories_buddy/models/meal/meals.dart';
 import 'package:calories_buddy/services/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,7 +9,6 @@ import 'package:calories_buddy/bloc/exercises/exercises_state.dart';
 import 'package:calories_buddy/bloc/food/food_bloc.dart';
 import 'package:calories_buddy/bloc/meal/meal_bloc.dart';
 import 'package:calories_buddy/bloc/meal/meal_event.dart';
-import 'package:calories_buddy/bloc/meal/meal_state.dart';
 import 'package:calories_buddy/bloc/user/user_bloc.dart';
 import 'package:calories_buddy/contants/contants.dart';
 import 'package:calories_buddy/models/tag.dart';
@@ -17,7 +18,7 @@ import 'package:calories_buddy/pages/item_list_page.dart';
 import 'package:calories_buddy/pages/exercise_table_page.dart';
 import 'package:calories_buddy/widgets/home/calorie_today_box.dart';
 import 'package:calories_buddy/widgets/home/header.dart';
-import 'package:calories_buddy/widgets/home/meal_box.dart';
+import 'package:calories_buddy/widgets/home/meal/meal_box.dart';
 import 'package:calories_buddy/widgets/home/workout_table_week.dart';
 import 'package:calories_buddy/widgets/system_widget_custom.dart';
 
@@ -31,6 +32,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   Systemwidgetcustom systemwidgetcustom = Systemwidgetcustom();
   APIService apiService = APIService();
+  // Meal list 5 meals per day
+  final Set<Meals> meals = {Meals(name: 'มื้อเช้า', icon: Icons.wb_sunny, foods: []), Meals(name: 'มื้อกลางวัน', icon: Icons.wb_cloudy, foods: []), Meals(name: 'มื้อเย็น', icon: Icons.nightlight_round, foods: []), Meals(name: 'มื้อว่าง', icon: Icons.coffee, foods: []), Meals(name: 'มื้อดึก', icon: Icons.bedtime, foods: [])};
 
   void getData() async {
     if (mounted) {
@@ -79,18 +82,23 @@ class _HomePageState extends State<HomePage> {
 
                   systemwidgetcustom.titleExpand(context, 'รายการมื้อ', ItemListPage(title: 'มื้ออาหาร', tags: tagMeals.map((meal) { return meal == 'ทั้งหมด' ? Tag(title: meal, isPressed: true) : Tag(title: meal, isPressed: false); }).toList())),
                   const SizedBox(height: 6),
-                  SizedBox(
-                    height: 590,
-                    child: BlocBuilder<MealBloc, MealState>(builder: (context, mealstate) {
-                      final meals = mealstate.mealList;
-                      return Column(
+                  BlocBuilder<MealBloc, MealState>(builder: (context, mealstate) {
+                    final mealList = mealstate.mealList;
+                    return SizedBox(
+                      height: mealList.isNotEmpty? mealList.length * 140 : 590,
+                      child: Column(
                         children: [
-                          for(var meal in meals)
-                            MealBox(meal: meal)
+                          if (mealList.isEmpty) ...[
+                            for (var meal in meals)
+                              MealBox(meal: meal)
+                          ] else ...[
+                            for (var meal in mealList)
+                              MealBox(meal: meal)
+                          ]
                         ],
-                      );
-                    }),
-                  ),
+                      ),
+                    );
+                  }),
                   const SizedBox(height: 10),
                   
                   systemwidgetcustom.titleExpand(context, 'ท่าออกกำลังกาย', ItemListPage(title: 'ท่าออกกำลังกาย', tags: tagExercises.map((exer) { return exer == 'ทั้งหมด' ? Tag(title: exer, isPressed: true) : Tag(title: exer, isPressed: false); }).toList())),
@@ -106,7 +114,7 @@ class _HomePageState extends State<HomePage> {
                       itemBuilder: (context, index) {
                         return BlocBuilder<ExerciseBloc, ExerciseState>(
                           builder: (context, exercise) {
-                            return exercise.exerciseList['อก']!.isNotEmpty ? systemwidgetcustom.customListTileExer(
+                            return exercise.exerciseList.isNotEmpty ? systemwidgetcustom.customListTileExer(
                               context,
                               exercise.exerciseList['อก']![index],
                               () => Navigator.push(context, MaterialPageRoute(builder: (context) => ExerciseDetailPage(exercise: exercise.exerciseList[exerciseContant[0]]![index])))

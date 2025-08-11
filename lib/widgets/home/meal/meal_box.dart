@@ -1,3 +1,4 @@
+import 'package:calories_buddy/widgets/home/meal/meal_total_calories.dart';
 import 'package:flutter/material.dart';
 import 'package:calories_buddy/models/meal/meals.dart';
 import 'package:calories_buddy/widgets/icons_style.dart';
@@ -14,8 +15,6 @@ class MealBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final totalCalories = meal.foods!.fold(0, (sum, food) => sum + (food.calories ?? 0).toInt());
-    
     return Card(
       elevation: 4,
       margin: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -44,11 +43,7 @@ class MealBox extends StatelessWidget {
                       Text(meal.name!, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white, letterSpacing: 0.3)),
                       const SizedBox(height: 4),
                       // แสดงแคลอรี่ในรูปแบบที่สวยงามขึ้น
-                      Container(
-                        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                        decoration: BoxDecoration(color: Color.fromRGBO(60, 60, 60, 0.6), borderRadius: BorderRadius.circular(8), border: Border.all(color: Color.fromRGBO(80, 80, 80, 1),  width: 0.5)),
-                        child: Text('$totalCalories แคลอรี่', style: TextTheme.of(context).labelMedium!.copyWith(color: Colors.orange[300], fontWeight: FontWeight.w500))
-                      ),
+                      MealTotalCalories(mealId: meal.id),
                     ],
                   ),
                 ),

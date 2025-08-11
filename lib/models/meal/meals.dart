@@ -42,11 +42,11 @@ class Meals {
   List<Food>? foods;
 
   Meals({
-    required this.id,
-    required this.name,
-    required this.type,
-    required this.icon,
-    required this.foods
+    this.id,
+    this.name,
+    this.type,
+    this.icon,
+    this.foods
   });
 
   static Map switchMealType(String meal) {
@@ -76,14 +76,14 @@ class Meals {
     if (json['mealItems'] != null && json['mealItems'] is List) {
       foods = (json['mealItems'] as List)
           .map((item) => Food(
-                name: item['name']?.toString(),
-                description: item['description']?.toString(),
-                type: item['type']?.toString(),
-                image: item['image']?.toString(),
-                calories: item['calories'],
-                carb: item['carb'],
-                protein: item['protein'],
-                fat: item['fat'],
+                name: item['food']['name']?.toString(),
+                description: item['food']['description']?.toString(),
+                type: item['food']['type']?.toString(),
+                image: item['food']['image']?.toString(),
+                calories: item['food']['calories'],
+                carb: item['food']['carb'],
+                protein: item['food']['protein'],
+                fat: item['food']['fat'],
                 tags: []
               ))
           .toList();

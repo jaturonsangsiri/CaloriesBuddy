@@ -183,6 +183,21 @@ class APIService {
     }
   }
 
+  Future<double> getTotalCalories(String? mealId) async {
+    try {
+      final Response response = await _dio.get('/meal/totalCalories/$mealId');
+      if (response.statusCode == 200) {
+        double totalCalories = json.decode(jsonEncode(response.data))['data']?.toDouble() ?? 0.0;
+        return totalCalories;
+      } else {
+        throw Exception('Failed to get meals');
+      }
+    } on DioException catch (error) {
+      if (kDebugMode) print(error.message);
+      throw Exception(error.response?.data['message'] ?? 'Unknown error occurred');
+    }
+  }
+
   Future<bool> register(String username, String password, String display, String email) async {
     try {
       final Response response = await _dio.post('/users', data: {
